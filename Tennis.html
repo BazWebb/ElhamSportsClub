@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tennis Club App</title>
+<title>Tennis App</title>
 
 <style>
     body {
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         background: #eaf7ea;
-        color: #1b3d1b;
     }
 
     .app {
@@ -27,6 +26,8 @@
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
         text-align: center;
+        position: relative;
+        overflow: hidden;
     }
 
     .header h1 {
@@ -34,9 +35,33 @@
         font-size: 1.8rem;
     }
 
-    .tennis-ball {
-        width: 60px;
-        margin-top: 10px;
+    /* 🎾 Animated tennis ball */
+    .ball {
+        width: 50px;
+        height: 50px;
+        background: radial-gradient(circle at 30% 30%, #ccff00, #99cc00);
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+        animation: bounce 1.5s infinite ease-in-out;
+    }
+
+    .ball::before,
+    .ball::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 3px solid white;
+        border-radius: 50%;
+        clip-path: ellipse(50% 40% at 50% 50%);
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translate(-50%, 0); }
+        50% { transform: translate(-50%, -20px); }
     }
 
     .section {
@@ -85,10 +110,6 @@
         font-size: 0.8rem;
         color: #2e7d32;
     }
-
-    .emoji {
-        font-size: 1.4rem;
-    }
 </style>
 </head>
 
@@ -97,9 +118,9 @@
 <div class="app">
 
     <div class="header">
-        <h1>🎾 Tennis Club</h1>
+        <h1>🎾 Tennis</h1>
         <p>Play • Improve • Enjoy</p>
-        <img class="tennis-ball" src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Tennis_ball_icon.png">
+        <div class="ball"></div>
     </div>
 
     <div class="section">
@@ -126,7 +147,7 @@
 
         <div class="card">
             <span class="badge">Relaxed</span>
-            <h3>Tue & Thu Morning</h3>
+            <h3>Tuesday & Thursday morning</h3>
             <div class="time">10:00am - 12:00</div>
             <p>Friendly play for returning players.</p>
         </div>
@@ -154,13 +175,13 @@
         <div class="card">
             <h3>Tournaments & Events 🏆</h3>
             <p>Fun competitions and social events throughout the year.</p>
-            <p><strong>Latest event:</strong> 16th April doubles tournament with rotating partners + AGM & supper.</p>
+            <p><strong>Latest:</strong> 16th April doubles event + AGM & supper.</p>
         </div>
 
     </div>
 
     <div class="footer">
-        © Tennis Club App
+        © Tennis App
     </div>
 
 </div>
