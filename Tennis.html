@@ -15,8 +15,26 @@
     .app {
         max-width: 420px;
         margin: auto;
-        background: #f6fff6;
         min-height: 100vh;
+        
+        /* 🎾 Subtle tennis court pattern */
+        background:
+            linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+            repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 48px,
+                rgba(46,125,50,0.08) 49px,
+                transparent 50px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 48px,
+                rgba(46,125,50,0.08) 49px,
+                transparent 50px
+            );
+        background-blend-mode: lighten;
     }
 
     .header {
@@ -33,7 +51,6 @@
         font-size: 1.8rem;
     }
 
-    /* 🖼️ Tennis player image */
     .header img {
         width: 100%;
         max-width: 260px;
@@ -98,7 +115,7 @@
     <div class="header">
         <h1>🎾 Tennis</h1>
         <p>Play • Improve • Enjoy</p>
-        <img src="tennisplayer.jpg" alt="Tennis Player">
+        <img src="tennisplayers.jpg" alt="Tennis Players">
     </div>
 
     <div class="section">
