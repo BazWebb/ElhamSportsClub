@@ -1,120 +1,160 @@
+
+
 <!DOCTYPE html>
-
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Play Badminton - Elham Sports Club</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0b3d91;
-            color: white;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badminton App</title>
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-            text-align: center;
-        }
+<style>
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #eaf7ea;
+    }
 
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
+    .app {
+        max-width: 420px;
+        margin: auto;
+        min-height: 100vh;
 
-        .subtitle {
-            background: #ffd700;
-            color: #0b3d91;
-            padding: 10px;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+        /* 🟢 Subtle court-style pattern */
+        background:
+            linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+            repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 48px,
+                rgba(46,125,50,0.08) 49px,
+                transparent 50px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 48px,
+                rgba(46,125,50,0.08) 49px,
+                transparent 50px
+            );
+    }
 
-        .image {
-            width: 100%;
-            max-width: 700px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
+    .header {
+        background: linear-gradient(160deg, #2e7d32, #66bb6a);
+        color: white;
+        padding: 25px 20px 10px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        text-align: center;
+    }
 
-        .section {
-            margin: 20px 0;
-            font-size: 18px;
-            line-height: 1.6;
-        }
+    .header h1 {
+        margin: 0;
+        font-size: 1.8rem;
+    }
 
-        .highlight {
-            background: #ffd700;
-            color: #0b3d91;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 20px;
-            margin: 20px 0;
-        }
+    .header img {
+        width: 100%;
+        max-width: 260px;
+        margin-top: 15px;
+        border-radius: 16px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
 
-        .contact {
-            color: #ffd700;
-            font-size: 20px;
-            font-weight: bold;
-        }
+    .section {
+        padding: 15px;
+    }
 
-        footer {
-            margin-top: 30px;
-            font-size: 16px;
-            opacity: 0.9;
-        }
+    .card {
+        background: white;
+        border-radius: 16px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 32px;
-            }
+    .card h3 {
+        margin: 0 0 8px;
+        color: #2e7d32;
+    }
 
-            .subtitle {
-                font-size: 18px;
-            }
-        }
-    </style>
+    .time {
+        font-weight: bold;
+        color: #1b5e20;
+        margin-bottom: 5px;
+    }
+
+    .badge {
+        display: inline-block;
+        background: #c8e6c9;
+        color: #1b5e20;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+    }
+
+    .contact {
+        background: #dff5df;
+        padding: 12px;
+        border-radius: 12px;
+        margin-top: 10px;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 15px;
+        font-size: 0.8rem;
+        color: #2e7d32;
+    }
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Play Badminton</h1>
-        <div class="subtitle">at Elham Sports Club</div>
+<div class="app">
 
-        <!-- Optional: Replace with your own hosted image -->
-        <img src="Playbadminton.png" alt="Badminton players" class="image">
-
-        <div class="section">
-            Our badminton facility has been running for a few years and has good support.
-            It has brought many members to play tennis too and vice versa!
-        </div>
-
-        <div class="highlight">
-            We play on Wednesday evenings from 6.45pm.
-        </div>
-
-        <div class="section">
-            The group is run by <strong>Clive Stanyon</strong> and aims to have
-            <strong>4–6 players per session</strong>.
-        </div>
-
-        <div class="section contact">
-            Contact Clive: <br>
-            <a href="mailto:stanyonc@aol.com" style="color:#ffd700;">
-                stanyonc@aol.com
-            </a>
-        </div>
-
-        <footer>
-            New members are most welcome! If you would like to play, please get in touch and
-            Clive can add you to the group.
-        </footer>
+    <div class="header">
+        <h1>🏸 Badminton</h1>
+        <p>Elham Sports Club</p>
+        <img src="badminton.jpg" alt="Badminton Players">
     </div>
+
+    <div class="section">
+
+        <div class="card">
+            <h3>Play Badminton</h3>
+            <p>
+                Our badminton sessions have been running for several years and have strong support.
+                Many members also enjoy both badminton and tennis!
+            </p>
+        </div>
+
+        <div class="card">
+            <span class="badge">Weekly Session</span>
+            <h3>Wednesday Evening</h3>
+            <div class="time">6:45pm</div>
+            <p>Friendly sessions with 4–6 players per group.</p>
+        </div>
+
+        <div class="card">
+            <h3>Organiser</h3>
+            <p>Run by <strong>Clive Stanyon</strong></p>
+        </div>
+
+        <div class="card contact">
+            <h3>Join the Group</h3>
+            <p>📧 stanyonc@aol.com</p>
+            <p>Contact Clive to be added to the weekly email invite.</p>
+            <p><strong>New members are very welcome!</strong></p>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © Badminton App
+    </div>
+
+</div>
 
 </body>
 </html>
