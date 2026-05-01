@@ -380,4 +380,8 @@ nav ul.menu > li > a {
   text-align: center;
   padding: 60px 20px;
 }
+
+.sports-nav a.active {
+  color: #ffd166;
+}
 </style>
