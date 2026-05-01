@@ -237,5 +237,58 @@ body {
 .sports-nav-wrapper {
   backdrop-filter: blur(10px);
 }
+```css
+/* SECTION GROUPING */
+.section-block {
+  margin-bottom: 30px;
+}
+
+.section-block h2 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #1b5e20;
+  padding-left: 5px;
+}
+
+/* CARD HIERARCHY */
+.card.highlight {
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+  border-left: 5px solid #2e7d32;
+  font-weight: 500;
+}
+
+/* CARD IMPROVEMENT */
+.card {
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* BETTER BADGES */
+.badge {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* CONTACT CARD STANDOUT */
+.contact {
+  background: linear-gradient(135deg, #dff5df, #f4fff4);
+  border: 1px solid #c8e6c9;
+}
+
+/* DESKTOP IMPROVEMENT */
+@media (min-width: 768px) {
+  .section-block {
+    margin-bottom: 40px;
+  }
+
+  .section-block h2 {
+    font-size: 1.4rem;
+  }
+}
+```
 
 
