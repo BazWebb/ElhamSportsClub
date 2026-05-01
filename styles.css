@@ -36,24 +36,7 @@ header {
   font-weight: bold;
 }
 
-nav {
-  display: flex;
-}
 
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
 
 /* HAMBURGER */
 .hamburger {
@@ -192,32 +175,34 @@ footer {
   font-size: 0.9rem;
 }
 
-  /* NAV CONTAINER */
+/* NAV WRAPPER */
 nav {
   display: flex;
-  align-items: center;
 }
 
 /* MAIN MENU */
-.menu {
-  display: flex;
-  flex-direction: row;   /* 👈 THIS IS KEY */
+nav ul.menu {
+  display: flex !important;   /* 👈 force horizontal */
+  flex-direction: row !important;
   list-style: none;
-  gap: 20px;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 
 /* MENU ITEMS */
-.menu > li {
+nav ul.menu > li {
   position: relative;
 }
 
 /* LINKS */
-.menu a {
+nav ul.menu > li > a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  padding: 5px 0;
-  display: inline-block;
+  display: block;
+  padding: 8px 0;
 }
 }
 </style>
