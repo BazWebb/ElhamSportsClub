@@ -10,6 +10,18 @@
 
 <body>
 
+  <script>
+function toggleMenu() {
+  const menu = document.getElementById("mobileNav");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+function toggleDropdown(element) {
+  const sub = element.nextElementSibling;
+  sub.style.display = sub.style.display === "flex" ? "none" : "flex";
+}
+</script>
+
 <header>
   <div class="nav-container">
     <div class="logo">Elham Sports Club</div>
