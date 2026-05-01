@@ -218,4 +218,15 @@ nav ul.menu > li > a {
   transform: translateY(0);
   pointer-events: auto;
 }
+
+.mobile-dropdown div {
+  padding: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mobile-sub a {
+  padding: 12px 20px;
+  display: block;
+}
 </style>
