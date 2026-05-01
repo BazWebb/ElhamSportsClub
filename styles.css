@@ -289,6 +289,84 @@ body {
     font-size: 1.4rem;
   }
 }
+ ```css
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #2e7d32, #66bb6a);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 0 0 20px 20px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.cta {
+  display: inline-block;
+  background: white;
+  color: #2e7d32;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* SECTION LAYOUT */
+.section {
+  padding: 30px 15px;
+}
+
+.section h2 {
+  margin-bottom: 15px;
+  color: #1b5e20;
+}
+
+/* ALT BACKGROUND */
+.section.alt {
+  background: #f7fdf7;
+  border-radius: 15px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  gap: 15px;
+}
+
+/* DESKTOP GRID */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* CARDS */
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* CONTACT */
+.contact {
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+  text-align: center;
+}
 ```
+
 
 
