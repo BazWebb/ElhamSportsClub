@@ -302,7 +302,7 @@ nav ul.menu > li > a {
 }
 
 /* HEADINGS */
-.tennis-containe h1 {
+.tennis-container h1 {
   font-size: 2.2rem;
   margin-bottom: 20px;
 }
@@ -336,12 +336,17 @@ nav ul.menu > li > a {
 }
 
 /* CARD STYLE SECTIONS */
-.card {
+.tennis-section {
   background: white;
   padding: 25px;
-  margin-top: 25px;
+  margin-top: 40px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.tennis-section h2 {
+  margin-bottom: 15px;
+  color: #0d3b66;
 }
 
 /* CONTACT BOX */
