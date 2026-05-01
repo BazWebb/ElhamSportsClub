@@ -89,8 +89,9 @@ p {
 
 /* GRID */
 .grid {
-  display: grid;
-  gap: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 20px;
+  border-radius: 16px;
 }
 
 .grid-3 {
