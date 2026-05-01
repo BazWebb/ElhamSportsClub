@@ -150,8 +150,8 @@ nav {
 
 /* MAIN MENU */
 nav ul.menu {
-  display: flex !important;   /* 👈 force horizontal */
-  flex-direction: row !important;
+  display: flex;
+  flex-direction: row;
   list-style: none;
   gap: 25px;
   margin: 0;
