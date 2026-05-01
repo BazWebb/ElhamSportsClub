@@ -16,6 +16,10 @@
 <body>
 <div class="app">
 
+   <nav>
+       <div id="nav-placeholder">Loading...</div>
+    </nav>
+
     <div class="header">
         <h1>🏸 Badminton</h1>
         <p>Elham Sports Club</p>
@@ -64,6 +68,25 @@
     </div>
 
 </div>
+
+   <script>
+fetch('nav.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('nav-placeholder').innerHTML = data;
+
+    // run active link script AFTER nav loads
+    const links = document.querySelectorAll('.menu a, .sports-nav a');
+    const currentPath = window.location.pathname.split("/").pop();
+
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
 
 </body>
 </html>
