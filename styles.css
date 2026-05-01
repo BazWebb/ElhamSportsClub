@@ -39,7 +39,10 @@ header {
   font-weight: bold;
 }
 
-
+/* NAV WRAPPER */
+nav {
+  display: flex;
+}
 
 /* HAMBURGER */
 .hamburger {
@@ -154,10 +157,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* NAV WRAPPER */
-nav {
-  display: flex;
-}
+
 
 /* MAIN MENU */
 nav ul.menu {
