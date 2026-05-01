@@ -203,4 +203,17 @@ nav ul.menu > li > a {
 .dropdown-menu a:hover {
   background: #f0f4f8;
 }
+
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.2s ease;
+  pointer-events: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 </style>
