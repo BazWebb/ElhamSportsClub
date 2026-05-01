@@ -1,214 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elham Sports Club</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elham Sports Club</title>
+
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* BODY */
+body {
+  line-height: 1.6;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* NAVBAR */
+header {
+  background: #0d3b66;
+  color: white;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background: #0d3b66;
+}
+
+.mobile-nav a {
+  padding: 12px;
+  border-top: 1px solid #ffffff33;
+  color: white;
+  text-decoration: none;
+}
+
+/* SECTIONS */
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+h1, h2, h3 {
+  margin-bottom: 15px;
+  color: #0d3b66;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0d3b66;
+  color: white;
+  margin-top: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+</style>
 </head>
-
-
-<script>
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('nav');
-
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
-</script>
-
 
 <body>
 
-  <!-- HEADER / NAVIGATION -->
-<header> <div class="container nav-wrapper"> <h1 class="logo">Elham Sports Club</h1> 
-  <!-- HAMBURGER BUTTON --> 
-  <button class="nav-toggle" aria-label="Toggle menu"> <span></span> <span></span> <span></span> 
-  </button> 
-  
-  <!-- NAV MENU --> 
-  <nav> 
-    <ul class="nav-menu"> 
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li> 
-      <li><a href="sports.html">Sports</a></li>
-      <li><a href="#">Play / Join</a></li>
-      <li><a href="#">News</a></li>
-      <li><a href="#">Documents</a></li>
-    </ul> </nav> </div>
+<header>
+  <div class="nav-container">
+    <div class="logo">Elham Sports Club</div>
+
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#sports">Sports</a></li>
+        <li><a href="#play">Play</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#documents">Documents</a></li>
+      </ul>
+    </nav>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#sports">Sports</a>
+    <a href="#play">Play</a>
+    <a href="#news">News</a>
+    <a href="#documents">Documents</a>
+  </div>
 </header>
 
-  
-<div class="sports-nav-wrapper">
-  <div class="sports-nav">
-    <a href="tennis.html" class="active">🎾 Tennis</a>
-    <a href="badminton.html">🏸 Badminton</a>
-    <a href="pickleball.html">🏓 Pickleball</a>
+<!-- HOME -->
+<section id="home">
+  <h1>Welcome to Elham Sports Club</h1>
+  <div class="section-card">
+    <p>A friendly, welcoming sports club offering tennis, badminton, pickleball and social events for all ages and abilities.</p>
   </div>
-</div>
- 
+</section>
 
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <div class="grid grid-3">
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="container">
-      <h2>Welcome to Elham Sports Club</h2>
-      <p>Tennis, Badminton & Pickleball for all levels</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn primary">Book a Court</a>
-        <a href="#" class="btn secondary">Join the Club</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUICK LINKS -->
-  <section class="quick-links">
-    <div class="container grid">
-      <a href="tennis.html" class="card">🎾 Tennis</a>
-      <a href="badminton.html" class="card">🏸 Badminton</a>
-      <a href="pickleball.html" class="card">🏓 Pickleball</a>
-      <a href="#" class="card">📅 Casual Play</a>
-      <a href="#" class="card">📰 News</a>
-    </div>
-  </section>
-
-  <!-- ABOUT SNAPSHOT -->
-  <section class="about">
-    <div class="container">
-      <h2>About Our Club</h2>
-      <p>
-        We are a friendly, community-focused sports club offering tennis,
-        badminton, and pickleball for players of all levels.
-      </p>
-      <ul>
-        <li>✔ Inclusive and welcoming</li>
-        <li>✔ Coaching and social sessions</li>
-        <li>✔ Competitive opportunities</li>
-      </ul>
-      <a href="#" class="btn">Learn More</a>
-    </div>
-  </section>
-
- 
-
-
-  <!-- SPORTS SECTION -->
-  <section class="sports">
-    <div class="container grid-3">
-      
-      <div class="card">
-        <h3>Tennis</h3>
-        <p>Courts, leagues, and coaching available.</p>
-        <a href="tennis.html">Explore Tennis →</a>
-      </div>
-
-      <div class="card">
-        <h3>Badminton</h3>
-        <p>Social and competitive sessions for all.</p>
-        <a href="badminton.html">Explore Badminton →</a>
-      </div>
-
-      <div class="card">
-        <h3>Pickleball</h3>
-        <p>Fast-growing and fun for all ages.</p>
-        <a href="pickleball.html">Explore Pickleball →</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- GET INVOLVED -->
-  <section class="cta">
-    <div class="container">
-      <h2>Get Involved</h2>
-      <p>New players always welcome. Book a session or become a member today.</p>
-      <div class="cta-buttons">
-        <a href="#" class="btn primary">Casual Play</a>
-        <a href="#" class="btn secondary">Membership Info</a>
-        <a href="#" class="btn">Book Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWS -->
-  <section class="news">
-    <div class="container">
-      <h2>Latest News</h2>
-
-      <div class="grid-3">
-        <article class="card">
-          <h3>Club Tournament Announced</h3>
-          <p>Join us for our upcoming summer tournament.</p>
-          <a href="#">Read more</a>
-        </article>
-
-        <article class="card">
-          <h3>New Coaching Sessions</h3>
-          <p>We’ve added new beginner-friendly coaching.</p>
-          <a href="#">Read more</a>
-        </article>
-
-        <article class="card">
-          <h3>Pickleball Expansion</h3>
-          <p>New courts now available for booking.</p>
-          <a href="#">Read more</a>
-        </article>
-      </div>
-
-      <a href="#" class="btn">View All News</a>
-    </div>
-  </section>
-
-  <!-- SAFEGUARDING -->
-  <section class="safeguarding">
-    <div class="container">
-      <h2>Safeguarding</h2>
-      <p>
-        We are committed to providing a safe, inclusive, and supportive
-        environment for all members.
-      </p>
-      <a href="#">View Safeguarding Policies</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container grid-3">
-
-      <div>
-        <h4>Club</h4>
-        <ul>
-          <li><a href="about,html">About</a></li>
-          <li><a href="#">Committee</a></li>
-          <li><a href="#">History</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>Play</h4>
-        <ul>
-          <li><a href="tennis.html">Tennis</a></li>
-          <li><a href="badminton.html">Badminton</a></li>
-          <li><a href="pickleball.html">Pickleball</a></li>
-          <li><a href="#">Casual Play</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Documents</a></li>
-          <li><a href="#">Safeguarding</a></li>
-        </ul>
-      </div>
-
+    <div class="section-card">
+      <h3>About Us</h3>
+      <p>A community-driven club promoting sport and social connection.</p>
     </div>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 Elham Sports Club. All rights reserved.</p>
+    <div class="section-card">
+      <h3>History</h3>
+      <p>Our club has served the Elham community for many years.</p>
     </div>
-  </footer>
+
+    <div class="section-card">
+      <h3>Committee</h3>
+      <p>Run by dedicated volunteers committed to the club's success.</p>
+    </div>
+
+    <div class="section-card">
+      <h3>Safeguarding</h3>
+      <p>We prioritise safety and wellbeing for all members.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPORTS -->
+<section id="sports">
+  <h2>Sports</h2>
+
+  <!-- TENNIS -->
+  <div class="section-card">
+    <h3>Tennis</h3>
+
+    <h4>Club Sessions</h4>
+    <p>Members can join weekly sessions on Mondays, Tuesdays, Thursdays and Fridays.</p>
+
+    <ul>
+      <li>Monday junior session: 5:00 - 6:00pm</li>
+      <li>Monday club session: 6:30 - 8:00pm</li>
+      <li>Tuesday & Thursday: 10:00am - 12:00</li>
+      <li>Friday session: 5:30 - 7:00pm</li>
+    </ul>
+
+    <p>Contact Brett (07875 797747) or Steve (07984 763156).</p>
+
+    <h4>Coaching</h4>
+    <p>Contact Stephen on 07717 844939 for coaching.</p>
+  </div>
+
+  <!-- BADMINTON -->
+  <div class="section-card">
+    <h3>Badminton</h3>
+    <p>Played Wednesday evenings from 6:45pm.</p>
+    <p>Run by Clive Stanyon (stanyonc@aol.com).</p>
+    <p>New members welcome!</p>
+  </div>
+
+  <!-- PICKLEBALL -->
+  <div class="section-card">
+    <h3>Pickleball</h3>
+    <p>A fast-paced hybrid of tennis, table tennis and badminton.</p>
+    <ul>
+      <li>Monday: 3:45 - 5:30</li>
+      <li>Wednesday: 4:00 - 6:30</li>
+      <li>Friday mornings (weather permitting)</li>
+    </ul>
+    <p>Contact Abby Bourn: abby.bourn@hotmail.co.uk</p>
+  </div>
+
+</section>
+
+<!-- PLAY -->
+<section id="play">
+  <h2>Play</h2>
+  <div class="grid grid-3">
+
+    <div class="section-card">
+      <h3>Casual Use</h3>
+      <p>Enjoy flexible use of facilities.</p>
+    </div>
+
+    <div class="section-card">
+      <h3>Membership</h3>
+      <p>Join our welcoming community.</p>
+    </div>
+
+    <div class="section-card">
+      <h3>Booking</h3>
+      <p>Book courts and sessions easily.</p>
+    </div>
+
+    <div class="section-card">
+      <h3>Coaching</h3>
+      <p>Improve your skills with coaching sessions.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <h2>News & Events</h2>
+  <div class="section-card">
+    <p>Elham Sports Club hosts tournaments and social events throughout the year.</p>
+    <p>Our April 16th event featured doubles matches, partner rotation, AGM and an American Supper.</p>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section id="documents">
+  <h2>Documents</h2>
+  <div class="section-card">
+    <p>Important club documents will be available here.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Elham Sports Club</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("mobileNav");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+</script>
 
 </body>
 </html>
