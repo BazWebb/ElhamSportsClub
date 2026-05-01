@@ -301,7 +301,7 @@ nav ul.menu > li > a {
 }
 
 /* HEADINGS */
-.tennis-container h1 {
+.tennis-containe h1 {
   font-size: 2.2rem;
   margin-bottom: 20px;
 }
@@ -335,7 +335,7 @@ nav ul.menu > li > a {
 }
 
 /* CARD STYLE SECTIONS */
-.tennis-section {
+.card {
   background: white;
   padding: 25px;
   margin-top: 25px;
