@@ -128,5 +128,68 @@ footer {
   .hamburger {
     display: block;
   }
+
+  /* DESKTOP DROPDOWN */
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: white;
+  color: #333;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.dropdown-menu li {
+  margin: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background: #f0f4f8;
+}
+
+/* SHOW ON HOVER */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* MOBILE DROPDOWN */
+.mobile-dropdown {
+  border-top: 1px solid #ffffff33;
+}
+
+.mobile-dropdown div {
+  padding: 12px;
+  cursor: pointer;
+}
+
+.mobile-sub {
+  display: none;
+  flex-direction: column;
+  background: #0b2e4f;
+}
+
+.mobile-sub a {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
 }
 </style>
