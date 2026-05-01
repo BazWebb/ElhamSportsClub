@@ -3,76 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tennis</title>
+<title>Tennis - Elham Sports Club</title>
 
-<style>
-   
-</style>
-   <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<a href="tennis.html" class="active">Tennis</a>
+
 <div class="app">
 
-    <div class="header">
-        <h1>🏸 Badminton</h1>
-        <p>Elham Sports Club</p>
-        <img src="badminton.jpg" alt="Badminton Players">
-    </div>
-
-   <div class="sports-nav">
-      <a href="tennis.html" class="active">🎾 Tennis</a> 
-      <a href="badminton.html">🏸 Badminton</a> 
-      <a href="pickleball.html">🏓 Pickleball</a>
-   </div>
+  <!-- HEADER -->
+  <div class="header">
+    <h1>🎾 Tennis</h1>
+    <p>Elham Sports Club</p>
+    <img src="tennisplayers.jpg" alt="Tennis Players">
   </div>
+
+  <!-- SPORTS NAV -->
+  <div class="sports-nav">
+    <a href="tennis.html" class="active">🎾 Tennis</a> 
+    <a href="badminton.html">🏸 Badminton</a> 
+    <a href="pickleball.html">🏓 Pickleball</a>
+  </div>
+
+</div>
 
 <main>
   <div class="tennis-container">
 
-    <h1>🎾 Tennis</h1>
+    <!-- SECTION: CLUB SESSIONS -->
+    <section class="tennis-section">
+      <h2>Club Sessions</h2>
 
-    <div class="grid">
+      <div class="grid">
 
-      <!-- Junior -->
-      <div class="card">
-        <span class="badge junior">Junior</span>
-        <h3>👦 Monday Afternoon</h3>
-        <div class="time">🕔 5:00 – 6:00pm</div>
-        <p>Fun mini tennis for children.</p>
-        <p>📞 Stephen: 07717 844939</p>
+        <div class="card">
+          <span class="badge junior">Junior</span>
+          <h3>👦 Monday Afternoon</h3>
+          <div class="time">5:00 – 6:00pm</div>
+          <p>Fun mini tennis for children.</p>
+          <p>📞 Stephen: 07717 844939</p>
+        </div>
+
+        <div class="card">
+          <span class="badge intermediate">Intermediate+</span>
+          <h3>🎾 Monday Evening</h3>
+          <div class="time">6:30 – 8:00pm</div>
+          <p>For intermediate players and above.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge relaxed">Relaxed</span>
+          <h3>☀️ Morning Social</h3>
+          <div class="time">Tue & Thu 10:00 – 12:00</div>
+          <p>Fun, pressure-free tennis.</p>
+        </div>
+
       </div>
+    </section>
 
-      <!-- Intermediate -->
-      <div class="card">
-        <span class="badge intermediate">Intermediate+</span>
-        <h3>🎾 Monday Evening</h3>
-        <div class="time">🕡 6:30 – 8:00pm</div>
-        <p>For intermediate players and above.</p>
-      </div>
+    <!-- SECTION: COACHING -->
+    <section class="tennis-section">
+      <h2>Coaching</h2>
 
-      <!-- Social -->
-      <div class="card">
-        <span class="badge relaxed">Relaxed</span>
-        <h3>☀️ Morning Social</h3>
-        <div class="time">🕙 Tue & Thu 10:00 – 12:00</div>
-        <p>Fun, pressure-free tennis.</p>
-      </div>
-
-      <!-- Coaching -->
       <div class="card highlight">
         <h3>🎾 Coaching</h3>
         <p>1-to-1 and group coaching available.</p>
         <p>📞 Stephen: 07717 844939</p>
       </div>
+    </section>
 
-      <!-- Events -->
+    <!-- SECTION: EVENTS -->
+    <section class="tennis-section">
+      <h2>Events</h2>
+
       <div class="card">
-        <h3>🏆 Events</h3>
-        <p>Tournaments, socials, and club events.</p>
+        <h3>🏆 Tournaments & Social Events</h3>
+        <p>Friendly competitions and club gatherings throughout the year.</p>
       </div>
+    </section>
 
-    </div>
   </div>
 </main>
+
+</body>
+</html>
