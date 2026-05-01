@@ -172,8 +172,8 @@ nav ul.menu > li > a {
   display: block;
   padding: 8px 0;
 }
-.menu {
-  background: red;
+.menu a.active {
+  border-bottom: 2px solid white;
 }
 
 /* DROPDOWN MENU */
