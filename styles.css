@@ -229,4 +229,78 @@ nav ul.menu > li > a {
   padding: 12px 20px;
   display: block;
 }
+
+/* TENNIS PAGE LAYOUT */
+.tennis-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* HEADINGS */
+.tennis-container h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.tennis-container h2 {
+  margin-top: 30px;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #0d3b66;
+  padding-bottom: 5px;
+}
+
+.tennis-container h3 {
+  margin-top: 20px;
+  color: #0d3b66;
+}
+
+/* TEXT */
+.tennis-container p {
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+/* LISTS */
+.tennis-container ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.tennis-container li {
+  margin-bottom: 8px;
+}
+
+/* CARD STYLE SECTIONS */
+.tennis-section {
+  background: white;
+  padding: 25px;
+  margin-top: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* CONTACT BOX */
+.contact-box {
+  background: #eaf4ff;
+  padding: 15px;
+  border-left: 4px solid #0d3b66;
+  margin-top: 15px;
+  border-radius: 6px;
+}
+
+/* MOBILE IMPROVEMENTS */
+@media (max-width: 768px) {
+  .tennis-container {
+    padding: 20px 15px;
+  }
+
+  .tennis-container h1 {
+    font-size: 1.6rem;
+  }
+
+  .tennis-section {
+    padding: 18px;
+  }
+}
 </style>
