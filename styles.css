@@ -176,7 +176,66 @@ body {
   color: white;
   border-color: #2e7d32;
 }
-```
+ 
+/* STICKY WRAPPER */
+.sports-nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #eaf7ea;
+  padding-top: 10px;
+}
 
-```
+/* TAB BAR */
+.sports-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 600px;
+
+  background: white;
+  border-radius: 30px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* TABS */
+.sports-nav a {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #2e7d32;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* ACTIVE TAB */
+.sports-nav a.active {
+  background: #2e7d32;
+  color: white;
+}
+
+/* HOVER EFFECT */
+.sports-nav a:hover {
+  background: #c8e6c9;
+  transform: translateY(-1px);
+}
+
+/* MOBILE SCROLL (if needed) */
+@media (max-width: 480px) {
+  .sports-nav {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 10px 15px;
+  }
+
+  .sports-nav::-webkit-scrollbar {
+    display: none;
+  }
+}
+.sports-nav-wrapper {
+  backdrop-filter: blur(10px);
+}
+
 
