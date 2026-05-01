@@ -5,16 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elham Sports Club</title>
 
-    <script>
+    <script> 
 function toggleMenu() {
   const menu = document.getElementById("mobileNav");
   menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
+function closeMenu() {
+  const menu = document.getElementById("mobileNav");
+  menu.style.display = "none";
+
+  // also close all submenus
+  document.querySelectorAll(".mobile-sub").forEach(sub => {
+    sub.style.display = "none";
+  });
+}
+
 function toggleDropdown(element) {
   const sub = element.nextElementSibling;
+
+  // close others first (better UX)
+  document.querySelectorAll(".mobile-sub").forEach(menu => {
+    if (menu !== sub) menu.style.display = "none";
+  });
+
   sub.style.display = sub.style.display === "flex" ? "none" : "flex";
 }
+ 
 </script>
 <link rel="stylesheet" href="styles.css">
 </head>
