@@ -191,5 +191,33 @@ footer {
   padding: 10px 20px;
   font-size: 0.9rem;
 }
+
+  /* NAV CONTAINER */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+/* MAIN MENU */
+.menu {
+  display: flex;
+  flex-direction: row;   /* 👈 THIS IS KEY */
+  list-style: none;
+  gap: 20px;
+}
+
+/* MENU ITEMS */
+.menu > li {
+  position: relative;
+}
+
+/* LINKS */
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 0;
+  display: inline-block;
+}
 }
 </style>
