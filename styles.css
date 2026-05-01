@@ -145,5 +145,38 @@ body {
     grid-column: span 3;
   }
 }
+
+```css id="navcss1"
+/* SPORTS NAV */
+.sports-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  flex-wrap: wrap;
+}
+
+.sports-nav a {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: white;
+  color: #2e7d32;
+  font-weight: 500;
+  border: 1px solid #c8e6c9;
+  transition: 0.2s ease;
+}
+
+.sports-nav a:hover {
+  background: #c8e6c9;
+}
+
+.sports-nav a.active {
+  background: #2e7d32;
+  color: white;
+  border-color: #2e7d32;
+}
+```
+
 ```
 
