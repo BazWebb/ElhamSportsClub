@@ -358,7 +358,8 @@ nav ul.menu > li > a {
   margin-top: 30px;
   font-size: 1.6rem;
   border-bottom: 2px solid #0d3b66;
-  padding-bottom: 5px;
+  padding-bottom: 5px; 
+  color: #0d3b66;
 }
 
 .tennis-container h3 {
