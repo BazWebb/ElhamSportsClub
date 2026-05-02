@@ -271,7 +271,7 @@ nav ul.menu > li > a {
   position: absolute;
   top: 35px;
   left: 0;
-  background: white;
+   background: red;
   min-width: 180px;
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
