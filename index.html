@@ -27,23 +27,29 @@ window.toggleDropdown = function(element) {
   const parent = element.parentElement;
   const sub = element.nextElementSibling;
 
-  // close others
   document.querySelectorAll(".mobile-dropdown").forEach(drop => {
     if (drop !== parent) {
       drop.classList.remove("open");
       const otherSub = drop.querySelector(".mobile-sub");
-      if (otherSub) otherSub.classList.remove("open");
+      if (otherSub) {
+        otherSub.classList.remove("open");
+        otherSub.style.maxHeight = null;
+      }
     }
   });
 
-  // toggle current
   parent.classList.toggle("open");
-  sub.classList.toggle("open");
+
+  if (sub.classList.contains("open")) {
+    sub.classList.remove("open");
+    sub.style.maxHeight = null;
+  } else {
+    sub.classList.add("open");
+    sub.style.maxHeight = sub.scrollHeight + "px";
+  }
 }
 
-document.getElementById("mobileNav").addEventListener("click", function(e) {
-  e.stopPropagation();
-});
+
         
  
 </script>
@@ -242,6 +248,10 @@ fetch('nav.html')
       });
     }
   });
+
+    document.getElementById("mobileNav").addEventListener("click", function(e) {
+  e.stopPropagation();
+});
 </script>
      
 
