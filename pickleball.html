@@ -92,15 +92,32 @@ fetch('nav.html')
   .then(data => {
     document.getElementById('nav-placeholder').innerHTML = data;
 
-    // run active link script AFTER nav loads
-    const links = document.querySelectorAll('.menu a, .sports-nav a');
-    const currentPath = window.location.pathname.split("/").pop();
+    // ✅ Mobile menu toggle
+    window.toggleMenu = function() {
+      const menu = document.getElementById("mobileNav");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
 
-    links.forEach(link => {
-      if (link.getAttribute('href') === currentPath) {
-        link.classList.add('active');
-      }
-    });
+    // ✅ Dropdown toggle
+    window.toggleDropdown = function(element) {
+      const sub = element.nextElementSibling;
+
+      document.querySelectorAll(".mobile-sub").forEach(menu => {
+        if (menu !== sub) menu.style.display = "none";
+      });
+
+      sub.style.display = sub.style.display === "flex" ? "none" : "flex";
+    }
+
+    // ✅ Close menu on link click
+    window.closeMenu = function() {
+      const menu = document.getElementById("mobileNav");
+      menu.style.display = "none";
+
+      document.querySelectorAll(".mobile-sub").forEach(sub => {
+        sub.style.display = "none";
+      });
+    }
   });
 </script>
 
