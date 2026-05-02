@@ -27,11 +27,12 @@ window.toggleDropdown = function(element) {
   const parent = element.parentElement;
   const sub = element.nextElementSibling;
 
-  // close all others
+  // close others
   document.querySelectorAll(".mobile-dropdown").forEach(drop => {
     if (drop !== parent) {
       drop.classList.remove("open");
-      drop.querySelector(".mobile-sub").classList.remove("open");
+      const otherSub = drop.querySelector(".mobile-sub");
+      if (otherSub) otherSub.classList.remove("open");
     }
   });
 
