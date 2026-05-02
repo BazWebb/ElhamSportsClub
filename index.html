@@ -44,11 +44,21 @@ window.toggleDropdown = function(element) {
 document.addEventListener("click", function(e) {
   const nav = document.getElementById("mobileNav");
   const hamburger = document.querySelector(".hamburger");
+  const overlay = document.getElementById("navOverlay");
 
-  if (!nav || !hamburger) return; // ✅ prevent crash
+  if (!nav || !hamburger || !overlay) return;
 
+  // if clicking outside nav AND not hamburger → close
   if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
     nav.classList.remove("open");
+    overlay.classList.remove("active");
+
+    // close dropdowns
+    document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+      drop.classList.remove("open");
+      const sub = drop.querySelector(".mobile-sub");
+      if (sub) sub.classList.remove("open");
+    });
   }
 });
  
