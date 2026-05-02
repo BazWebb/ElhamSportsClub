@@ -95,6 +95,8 @@ nav {
   z-index: 2000;  /* 🔑 higher than everything */
    backdrop-filter: none;
   isolation: isolate;
+  overflow: hidden;
+
 }
 
 .mobile-nav a {
