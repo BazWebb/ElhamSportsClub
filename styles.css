@@ -98,8 +98,10 @@ p {
 
 /* GRID */
 .grid {
-  background: rgba(255, 255, 255, 0.06);
-   backdrop-filter: blur(10px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  background: rgba(255,255,255,0.04);
   padding: 20px;
   border-radius: 16px;
 }
@@ -392,6 +394,7 @@ nav ul.menu > li > a {
   margin-top: 40px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    color: white;
 }
 
  
