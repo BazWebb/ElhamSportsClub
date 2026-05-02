@@ -96,7 +96,7 @@ transition: transform 0.25s ease, opacity 0.2s ease;
   z-index: 2000;  /* 🔑 higher than everything */
    backdrop-filter: none;
   isolation: isolate;
-  overflow: hidden;
+ 
 
 }
 
@@ -218,7 +218,7 @@ footer {
 /* DROPDOWN CONTAINER */
 .mobile-sub {
   max-height: 0;
-  overflow: hidden;
+   
   display: flex;
   flex-direction: column;
   background: #0b2e4f;
@@ -282,7 +282,7 @@ nav ul.menu > li > a {
   min-width: 180px;
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-  overflow: hidden;
+ 
   z-index: 9999;
 
   opacity: 0;
