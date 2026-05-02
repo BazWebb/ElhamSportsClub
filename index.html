@@ -197,30 +197,33 @@ fetch('nav.html')
     document.getElementById('nav-placeholder').innerHTML = data;
 
     // ✅ ADD THIS BACK
-    window.toggleMenu = function() {
-      const menu = document.getElementById("mobileNav");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-    }
+  window.toggleMenu = function() {
+  const nav = document.getElementById("mobileNav");
+  const overlay = document.getElementById("navOverlay");
+
+  nav.classList.toggle("open");
+  overlay.classList.toggle("active");
+}
 
     window.toggleDropdown = function(element) {
       const sub = element.nextElementSibling;
 
-      document.querySelectorAll(".mobile-sub").forEach(menu => {
-        if (menu !== sub) menu.style.display = "none";
-      });
+   
 
       sub.style.display = sub.style.display === "flex" ? "none" : "flex";
     }
 
-    window.closeMenu = function() {
-      const menu = document.getElementById("mobileNav");
-      menu.style.display = "none";
+  window.closeMenu = function() {
+  const nav = document.getElementById("mobileNav");
+  const overlay = document.getElementById("navOverlay");
 
-      document.querySelectorAll(".mobile-sub").forEach(sub => {
-        sub.style.display = "none";
-      });
-    }
+  nav.classList.remove("open");
+  overlay.classList.remove("active");
+
+  document.querySelectorAll(".mobile-sub").forEach(sub => {
+    sub.style.display = "none";
   });
+}
 </script>
      
 
