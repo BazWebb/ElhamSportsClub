@@ -210,12 +210,23 @@ footer {
   cursor: pointer;
 }
 
+/* DROPDOWN CONTAINER */
 .mobile-sub {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
   flex-direction: column;
   background: #0b2e4f;
+
+  transition: max-height 0.3s ease;
 }
 
+/* OPEN STATE */
+.mobile-sub.open {
+  max-height: 300px; /* enough for items */
+}
+
+/* LINKS */
 .mobile-sub a {
   padding: 10px 20px;
   font-size: 0.9rem;
