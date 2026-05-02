@@ -521,6 +521,10 @@ nav ul.menu > li > a {
 .mobile-dropdown.open .arrow {
   transform: rotate(180deg);
 }
+
+  .mobile-dropdown.open .mobile-dropdown-header {
+  color: var(--accent);
+}
 }
 
 .hero {
