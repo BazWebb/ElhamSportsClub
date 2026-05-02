@@ -73,8 +73,19 @@ header img {
 }
 
 .logo {
-  font-size: 1.4rem;
+   display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 40px;     /* 🔑 controls size */
+  width: auto;
+}
+
+.logo span {
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
 /* NAV WRAPPER */
