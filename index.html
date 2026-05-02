@@ -22,13 +22,20 @@ window.closeMenu = function() {
 }
         
 window.toggleDropdown = function(element) {
+  const parent = element.parentElement;
   const sub = element.nextElementSibling;
 
-  document.querySelectorAll(".mobile-sub").forEach(menu => {
-    if (menu !== sub) menu.style.display = "none";
+  // close all others
+  document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+    if (drop !== parent) {
+      drop.classList.remove("open");
+      drop.querySelector(".mobile-sub").classList.remove("open");
+    }
   });
 
-  sub.style.display = sub.style.display === "flex" ? "none" : "flex";
+  // toggle current
+  parent.classList.toggle("open");
+  sub.classList.toggle("open");
 }
 
 document.addEventListener("click", function(e) {
