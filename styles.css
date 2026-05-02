@@ -21,12 +21,12 @@ header {
   background: #0d3b66;
   color: white;
   padding: 15px 20px;
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
   position: relative;
-  overflow: hidden;
+ overflow: visible;
   border-radius: 12px;
 }
 
@@ -55,6 +55,7 @@ header img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: visible;
 }
 
 .logo {
@@ -275,7 +276,7 @@ nav ul.menu > li > a {
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   overflow: hidden;
-  z-index: 999;
+   z-index: 2000;
 }
 
 .dropdown-menu li {
@@ -561,5 +562,22 @@ nav ul.menu > li > a {
 
 .mobile-dropdown.open .arrow {
   transform: rotate(180deg);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #0d3b66;
+  min-width: 180px;
+  display: none;
+  z-index: 9999;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 </style>
