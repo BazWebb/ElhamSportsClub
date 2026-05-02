@@ -202,11 +202,7 @@ fetch('nav.html')
   .then(data => {
     document.getElementById('nav-placeholder').innerHTML = data;
 
-    // ✅ Mobile menu toggle
-    window.toggleMenu = function() {
-      const menu = document.getElementById("mobileNav");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-    }
+   
 
     // ✅ Dropdown toggle
     window.toggleDropdown = function(element) {
