@@ -510,6 +510,15 @@ nav ul.menu > li > a {
   .tennis-section {
     padding: 18px;
   }
+
+  .arrow {
+  float: right;
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.open .arrow {
+  transform: rotate(180deg);
+}
 }
 
 .hero {
@@ -538,14 +547,7 @@ nav ul.menu > li > a {
   --accent: #ef6c00;
 }
 
-.arrow {
-  float: right;
-  transition: transform 0.3s ease;
-}
 
-.mobile-dropdown.open .arrow {
-  transform: rotate(180deg);
-}
 
 .dropdown {
   position: relative;
