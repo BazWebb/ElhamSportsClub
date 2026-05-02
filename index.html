@@ -8,20 +8,22 @@
     <script> 
  
 
-function closeMenu() {
-  const menu = document.getElementById("mobileNav");
-  menu.style.display = "none";
+window.closeMenu = function() {
+  const nav = document.getElementById("mobileNav");
+  const overlay = document.getElementById("navOverlay");
 
-  // also close all submenus
+  nav.classList.remove("open");
+  overlay.classList.remove("active");
+
+  // keep this part
   document.querySelectorAll(".mobile-sub").forEach(sub => {
     sub.style.display = "none";
   });
 }
-
-function toggleDropdown(element) {
+        
+window.toggleDropdown = function(element) {
   const sub = element.nextElementSibling;
 
-  // close others first (better UX)
   document.querySelectorAll(".mobile-sub").forEach(menu => {
     if (menu !== sub) menu.style.display = "none";
   });
