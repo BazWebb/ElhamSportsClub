@@ -112,7 +112,7 @@ section {
 
 /* SHOW PANEL */
 .mobile-nav.open {
-  transform: translateX(0);
+  transform: translateX(0); /* ✅ visible when open */
 }
 
 /* OVERLAY */
