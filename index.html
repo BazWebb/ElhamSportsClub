@@ -41,7 +41,9 @@ window.toggleDropdown = function(element) {
   sub.classList.toggle("open");
 }
 
-
+document.getElementById("mobileNav").addEventListener("click", function(e) {
+  e.stopPropagation();
+});
         
  
 </script>
@@ -64,7 +66,7 @@ window.toggleDropdown = function(element) {
  
 <!-- HOME -->
 <section id="home">
-  <h1>Welcome to Elham Sports Club 3</h1>
+  <h1>Welcome to Elham Sports Club 4</h1>
   <div class="section-card">
     <p>A friendly, welcoming sports club offering tennis, badminton, pickleball and social events for all ages and abilities.</p>
   </div>
