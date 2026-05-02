@@ -1,5 +1,16 @@
 
 <style>
+
+:root {
+  --bg-dark: #081a2b;
+  --bg-mid: #122b45;
+  --surface: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-light: #eaeaea;
+
+  --accent: #0d3b66; /* fallback */
+}
+
 /* RESET */
 * {
   margin: 0;
@@ -11,7 +22,9 @@
 /* BODY */
 body {
   line-height: 1.6;
-   background: linear-gradient(180deg, #0b1f33, #122b45);
+   background:
+    radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 40%),
+    linear-gradient(180deg, #081a2b, #122b45);
   color: #eaeaea;
   font-family: 'Segoe UI', sans-serif;
 }
