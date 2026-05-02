@@ -33,6 +33,8 @@ document.addEventListener("click", function(e) {
   const nav = document.getElementById("mobileNav");
   const hamburger = document.querySelector(".hamburger");
 
+  if (!nav || !hamburger) return; // ✅ prevent crash
+
   if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
     nav.style.display = "none";
   }
@@ -48,7 +50,7 @@ document.addEventListener("click", function(e) {
     
 <header>
  
-    <div class="logo">Elham Sports Club</div>
+   
       <div id="nav-placeholder">Loading...</div>
        
  
