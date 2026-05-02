@@ -271,7 +271,7 @@ nav ul.menu > li > a {
   position: absolute;
   top: 100%;
   left: 0;
-  background: #0d3b66;
+ background: white;
   min-width: 180px;
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
@@ -297,11 +297,11 @@ nav ul.menu > li > a {
 .dropdown-menu a {
   display: block;
   padding: 10px 15px;
-   color: white;
+    color: #0d3b66;
 }
 
 .dropdown-menu a:hover {
-   background: rgba(255,255,255,0.1);
+   background: #f0f4f8;
 }
 
 
