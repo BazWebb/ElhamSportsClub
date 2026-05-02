@@ -23,15 +23,16 @@
 body {
   line-height: 1.6;
    background:
-    radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 40%),
-    linear-gradient(180deg, #081a2b, #122b45);
-  color: #eaeaea;
+     radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 40%),
+    linear-gradient(180deg, var(--bg-dark), var(--bg-mid));
+  color: var(--text-light);
   font-family: 'Segoe UI', sans-serif;
 }
 
 /* NAVBAR */
 header {
-  background: #0d3b66;
+  background: linear-gradient(135deg, var(--accent), #0d3b66);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
   color: white;
   padding: 15px 20px;
   position: relative;
@@ -58,10 +59,10 @@ header img {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.3),
     var(--accent)
   );
-  opacity: 0.6;
+  opacity: 0.7;
   border-radius: 12px;
 }
 .nav-container {
@@ -183,7 +184,7 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.03);
   padding: 20px;
   border-radius: 16px;
 }
@@ -356,8 +357,8 @@ nav ul.menu > li > a {
 /* CARD STYLE */
 /* CARD BASE */
 .card {
-  background: #ffffff;
-  color: #333;
+    background: var(--surface);
+  color: var(--text-dark);
   padding: 22px;
   border-radius: 18px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.4);
@@ -408,7 +409,7 @@ nav ul.menu > li > a {
 
 
 .card.highlight {
-  background: linear-gradient(135deg, var(--accent), #333);
+  background: linear-gradient(135deg, var(--accent), #222);
   color: white;
   box-shadow: 0 12px 30px rgba(13,59,102,0.4);
    animation: accentPulse 2.5s infinite;
