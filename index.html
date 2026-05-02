@@ -15,9 +15,11 @@ window.closeMenu = function() {
   nav.classList.remove("open");
   overlay.classList.remove("active");
 
-  // keep this part
-  document.querySelectorAll(".mobile-sub").forEach(sub => {
-    sub.style.display = "none";
+  // ✅ Close all dropdowns (new system)
+  document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+    drop.classList.remove("open");
+    const sub = drop.querySelector(".mobile-sub");
+    if (sub) sub.classList.remove("open");
   });
 }
         
