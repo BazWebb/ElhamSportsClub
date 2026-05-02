@@ -41,26 +41,8 @@ window.toggleDropdown = function(element) {
   sub.classList.toggle("open");
 }
 
-document.addEventListener("click", function(e) {
-  const nav = document.getElementById("mobileNav");
-  const hamburger = document.querySelector(".hamburger");
-  const overlay = document.getElementById("navOverlay");
 
-  if (!nav || !hamburger || !overlay) return;
-
-  // if clicking outside nav AND not hamburger → close
-  if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
-    nav.classList.remove("open");
-    overlay.classList.remove("active");
-
-    // close dropdowns
-    document.querySelectorAll(".mobile-dropdown").forEach(drop => {
-      drop.classList.remove("open");
-      const sub = drop.querySelector(".mobile-sub");
-      if (sub) sub.classList.remove("open");
-    });
-  }
-});
+        
  
 </script>
 <link rel="stylesheet" href="styles.css">
@@ -82,7 +64,7 @@ document.addEventListener("click", function(e) {
  
 <!-- HOME -->
 <section id="home">
-  <h1>Welcome to Elham Sports Club 2</h1>
+  <h1>Welcome to Elham Sports Club 3</h1>
   <div class="section-card">
     <p>A friendly, welcoming sports club offering tennis, badminton, pickleball and social events for all ages and abilities.</p>
   </div>
