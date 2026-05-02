@@ -85,7 +85,8 @@ nav {
   height: 100vh;
   width: 260px;
   background: #0d3b66;
-  display: block;
+  display: flex;
+  flex-direction: column;   /* 🔑 force vertical stacking */
   padding-top: 70px;
  opacity: 0; /* ensure no transparency */
   /* hidden by default */
@@ -101,8 +102,10 @@ transition: transform 0.25s ease, opacity 0.2s ease;
   padding: 14px 20px;
   color: white;
   text-decoration: none;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.08);
   box-shadow: 4px 0 20px rgba(0,0,0,0.4);
+  display: block;           /* 🔑 prevents inline behaviour */
+  width: 100%;
 }
 
 /* SECTIONS */
@@ -205,6 +208,7 @@ footer {
 /* MOBILE DROPDOWN */
 .mobile-dropdown {
   display: block;
+  width: 100%;
   border-top: 1px solid #ffffff33;
 }
 
