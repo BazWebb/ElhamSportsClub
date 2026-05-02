@@ -100,34 +100,49 @@
   </div>
 </main>
 
-  <script>
+ <script>
 fetch('nav.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('nav-placeholder').innerHTML = data;
 
-    // ✅ ADD THIS BACK
+    // ✅ Toggle menu
     window.toggleMenu = function() {
-      const menu = document.getElementById("mobileNav");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+      const nav = document.getElementById("mobileNav");
+      const overlay = document.getElementById("navOverlay");
+
+      nav.classList.toggle("open");
+      overlay.classList.toggle("active");
     }
 
+    // ✅ Dropdown (class-based version — not display!)
     window.toggleDropdown = function(element) {
+      const parent = element.parentElement;
       const sub = element.nextElementSibling;
 
-      document.querySelectorAll(".mobile-sub").forEach(menu => {
-        if (menu !== sub) menu.style.display = "none";
+      document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+        if (drop !== parent) {
+          drop.classList.remove("open");
+          drop.querySelector(".mobile-sub").classList.remove("open");
+        }
       });
 
-      sub.style.display = sub.style.display === "flex" ? "none" : "flex";
+      parent.classList.toggle("open");
+      sub.classList.toggle("open");
     }
 
+    // ✅ Close menu
     window.closeMenu = function() {
-      const menu = document.getElementById("mobileNav");
-      menu.style.display = "none";
+      const nav = document.getElementById("mobileNav");
+      const overlay = document.getElementById("navOverlay");
 
-      document.querySelectorAll(".mobile-sub").forEach(sub => {
-        sub.style.display = "none";
+      nav.classList.remove("open");
+      overlay.classList.remove("active");
+
+      document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+        drop.classList.remove("open");
+        const sub = drop.querySelector(".mobile-sub");
+        if (sub) sub.classList.remove("open");
       });
     }
   });
