@@ -553,4 +553,13 @@ nav ul.menu > li > a {
 .pickleball-page {
   --accent: #ef6c00;
 }
+
+.arrow {
+  float: right;
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.open .arrow {
+  transform: rotate(180deg);
+}
 </style>
