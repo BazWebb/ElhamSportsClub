@@ -270,6 +270,14 @@ nav ul.menu > li > a {
   display: block;
   padding: 8px 0;
 }
+.menu a {
+  transition: all 0.2s ease;
+}
+
+.menu a:hover {
+  transform: translateY(-1px);
+}
+
 .menu a.active,
 .sports-nav a.active {
   color: var(--accent);
@@ -581,6 +589,8 @@ nav ul.menu > li > a {
 .dropdown {
   position: relative;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 
 </style>
