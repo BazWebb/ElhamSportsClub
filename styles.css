@@ -94,6 +94,7 @@ nav {
  transition: transform 0.25s ease;
   z-index: 2000;  /* 🔑 higher than everything */
    backdrop-filter: none;
+  isolation: isolate;
 }
 
 .mobile-nav a {
