@@ -367,7 +367,22 @@ nav ul.menu > li > a {
   background: #f0f4f8;
 }
 
+.dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
+.dropdown > a::after {
+  content: "▾";
+  font-size: 0.7em;
+  transition: transform 0.25s ease;
+}
+
+.dropdown.open > a::after,
+.dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
 
 
 
