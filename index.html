@@ -223,6 +223,32 @@ fetch('nav.html')
     });
 
   });
+
+    // Desktop dropdown click support (for tablets/touch)
+document.querySelectorAll(".dropdown > a").forEach(link => {
+  link.addEventListener("click", function(e) {
+    const parent = this.parentElement;
+
+    // if screen is small OR touch device
+    if (window.innerWidth <= 768) return;
+
+    e.preventDefault();
+
+    document.querySelectorAll(".dropdown").forEach(d => {
+      if (d !== parent) d.classList.remove("open");
+    });
+
+    parent.classList.toggle("open");
+  });
+});
+
+    document.addEventListener("click", function(e) {
+  document.querySelectorAll(".dropdown").forEach(drop => {
+    if (!drop.contains(e.target)) {
+      drop.classList.remove("open");
+    }
+  });
+});
 </script>
      
 
