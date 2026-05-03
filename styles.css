@@ -22,8 +22,8 @@
 /* BODY */
 body {
   line-height: 1.6;
-   background:
-     radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 40%),
+    background:
+    radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 40%),
     linear-gradient(180deg, var(--bg-dark), var(--bg-mid));
   color: var(--text-light);
   font-family: 'Segoe UI', sans-serif;
@@ -31,14 +31,13 @@ body {
 
 /* NAVBAR */
 header {
-  background: linear-gradient(135deg, var(--accent), #0d3b66);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+ background: linear-gradient(135deg, var(--accent), #0b2e4f);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
   color: white;
   padding: 15px 20px;
   position: relative;
   top: 0;
-  z-index: 1000;
-  position: relative;
+  z-index: 1;
  overflow: visible;      
   border-radius: 12px;
 }
@@ -53,27 +52,21 @@ header img {
   z-index: 1;
 }
 
-/* overlay */
-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.3),
-    var(--accent)
-  );
-  opacity: 0.7;
-  border-radius: 12px;
-  z-index: 0;
-}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   overflow: visible;
   position: relative;
-  z-index: 1001;
+  z-index: 2;
+}
+
+.logo,
+nav,
+.hamburger {
+  position: relative;
+  z-index: 2;
 }
 
 .logo {
@@ -396,11 +389,13 @@ transition: transform 0.2s ease, opacity 0.2s ease;
 /* CARD STYLE */
 /* CARD BASE */
 .card {
-    background: var(--surface);
+   background: var(--surface);
   color: var(--text-dark);
   padding: 22px;
   border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.35),
+    0 0 0 1px rgba(255,255,255,0.05);
   transition: all 0.25s ease;
    opacity: 0;
   transform: translateY(20px);
@@ -607,7 +602,7 @@ transition: transform 0.2s ease, opacity 0.2s ease;
   transition: transform 0.3s ease;
 }
   
- .header img {
+ header img {
     width: 100%;   /* match grid/container */
   }
   
