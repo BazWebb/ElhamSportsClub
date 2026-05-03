@@ -7,47 +7,7 @@
 
     <script> 
  
-
-window.closeMenu = function() {
-  const nav = document.getElementById("mobileNav");
-  const overlay = document.getElementById("navOverlay");
-
-  nav.classList.remove("open");
-  overlay.classList.remove("active");
-
-  // ✅ Close all dropdowns (new system)
-  document.querySelectorAll(".mobile-dropdown").forEach(drop => {
-    drop.classList.remove("open");
-    const sub = drop.querySelector(".mobile-sub");
-    if (sub) sub.classList.remove("open");
-  });
-}
-        
-window.toggleDropdown = function(element) {
-  const parent = element.parentElement;
-  const sub = element.nextElementSibling;
-
-  document.querySelectorAll(".mobile-dropdown").forEach(drop => {
-    if (drop !== parent) {
-      drop.classList.remove("open");
-      const otherSub = drop.querySelector(".mobile-sub");
-      if (otherSub) {
-        otherSub.classList.remove("open");
-        otherSub.style.maxHeight = null;
-      }
-    }
-  });
-
-  parent.classList.toggle("open");
-
-  if (sub.classList.contains("open")) {
-    sub.classList.remove("open");
-    sub.style.maxHeight = null;
-  } else {
-    sub.classList.add("open");
-    sub.style.maxHeight = sub.scrollHeight + "px";
-  }
-}
+ 
 
 
         
@@ -208,16 +168,18 @@ fetch('nav.html')
   .then(data => {
     document.getElementById('nav-placeholder').innerHTML = data;
 
-    // ✅ Toggle menu
+    // Toggle menu
     window.toggleMenu = function() {
       const nav = document.getElementById("mobileNav");
       const overlay = document.getElementById("navOverlay");
+
+      if (!nav || !overlay) return;
 
       nav.classList.toggle("open");
       overlay.classList.toggle("active");
     }
 
-    // ✅ Dropdown (class-based version — not display!)
+    // Dropdown
     window.toggleDropdown = function(element) {
       const parent = element.parentElement;
       const sub = element.nextElementSibling;
@@ -225,7 +187,8 @@ fetch('nav.html')
       document.querySelectorAll(".mobile-dropdown").forEach(drop => {
         if (drop !== parent) {
           drop.classList.remove("open");
-          drop.querySelector(".mobile-sub").classList.remove("open");
+          const otherSub = drop.querySelector(".mobile-sub");
+          if (otherSub) otherSub.classList.remove("open");
         }
       });
 
@@ -233,10 +196,12 @@ fetch('nav.html')
       sub.classList.toggle("open");
     }
 
-    // ✅ Close menu
+    // Close menu
     window.closeMenu = function() {
       const nav = document.getElementById("mobileNav");
       const overlay = document.getElementById("navOverlay");
+
+      if (!nav || !overlay) return;
 
       nav.classList.remove("open");
       overlay.classList.remove("active");
@@ -247,15 +212,17 @@ fetch('nav.html')
         if (sub) sub.classList.remove("open");
       });
     }
-  });
 
+    // ✅ FIX: NOW elements exist → safe to attach listeners
     document.getElementById("mobileNav").addEventListener("click", function(e) {
-  e.stopPropagation();
-});
+      e.stopPropagation();
+    });
 
     document.querySelectorAll(".mobile-nav a").forEach(link => {
-  link.addEventListener("click", closeMenu);
-});
+      link.addEventListener("click", window.closeMenu);
+    });
+
+  });
 </script>
      
 
