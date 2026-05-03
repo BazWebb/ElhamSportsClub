@@ -32,7 +32,7 @@
  
 <!-- HOME -->
 <section id="home">
-  <h1>Welcome to Elham Sports Club 6</h1>
+  <h1>Welcome to Elham Sports Club 7</h1>
   <div class="section-card">
     <p>A friendly, welcoming sports club offering tennis, badminton, pickleball and social events for all ages and abilities.</p>
   </div>
@@ -163,23 +163,37 @@
 
  
 <script>
+<script>
 fetch('nav.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('nav-placeholder').innerHTML = data;
 
-    // Toggle menu
+    const nav = document.getElementById("mobileNav");
+    const overlay = document.getElementById("navOverlay");
+
+    // ✅ HAMBURGER
     window.toggleMenu = function() {
-      const nav = document.getElementById("mobileNav");
-      const overlay = document.getElementById("navOverlay");
-
-      if (!nav || !overlay) return;
-
       nav.classList.toggle("open");
       overlay.classList.toggle("active");
     }
 
-    // Dropdown
+    // ✅ CLOSE MENU
+    window.closeMenu = function() {
+      nav.classList.remove("open");
+      overlay.classList.remove("active");
+
+      document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+        drop.classList.remove("open");
+        const sub = drop.querySelector(".mobile-sub");
+        if (sub) {
+          sub.classList.remove("open");
+          sub.style.maxHeight = null;
+        }
+      });
+    }
+
+    // ✅ DROPDOWN
     window.toggleDropdown = function(element) {
       const parent = element.parentElement;
       const sub = element.nextElementSibling;
@@ -188,67 +202,36 @@ fetch('nav.html')
         if (drop !== parent) {
           drop.classList.remove("open");
           const otherSub = drop.querySelector(".mobile-sub");
-          if (otherSub) otherSub.classList.remove("open");
+          if (otherSub) {
+            otherSub.classList.remove("open");
+            otherSub.style.maxHeight = null;
+          }
         }
       });
 
       parent.classList.toggle("open");
-      sub.classList.toggle("open");
+
+      if (sub.classList.contains("open")) {
+        sub.classList.remove("open");
+        sub.style.maxHeight = null;
+      } else {
+        sub.classList.add("open");
+        sub.style.maxHeight = sub.scrollHeight + "px";
+      }
     }
 
-    // Close menu
-    window.closeMenu = function() {
-      const nav = document.getElementById("mobileNav");
-      const overlay = document.getElementById("navOverlay");
-
-      if (!nav || !overlay) return;
-
-      nav.classList.remove("open");
-      overlay.classList.remove("active");
-
-      document.querySelectorAll(".mobile-dropdown").forEach(drop => {
-        drop.classList.remove("open");
-        const sub = drop.querySelector(".mobile-sub");
-        if (sub) sub.classList.remove("open");
-      });
-    }
-
-    // ✅ FIX: NOW elements exist → safe to attach listeners
-    document.getElementById("mobileNav").addEventListener("click", function(e) {
+    // ✅ STOP MENU FROM CLOSING WHEN CLICKING INSIDE
+    nav.addEventListener("click", function(e) {
       e.stopPropagation();
     });
 
-    document.querySelectorAll(".mobile-nav a").forEach(link => {
-      link.addEventListener("click", window.closeMenu);
+    // ✅ CLOSE ONLY WHEN CLICKING LINKS (NOT DROPDOWN HEADERS)
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
     });
 
   });
-
-    // Desktop dropdown click support (for tablets/touch)
-document.querySelectorAll(".dropdown > a").forEach(link => {
-  link.addEventListener("click", function(e) {
-    const parent = this.parentElement;
-
-    // if screen is small OR touch device
-    if (window.innerWidth <= 768) return;
-
-    e.preventDefault();
-
-    document.querySelectorAll(".dropdown").forEach(d => {
-      if (d !== parent) d.classList.remove("open");
-    });
-
-    parent.classList.toggle("open");
-  });
-});
-
-    document.addEventListener("click", function(e) {
-  document.querySelectorAll(".dropdown").forEach(drop => {
-    if (!drop.contains(e.target)) {
-      drop.classList.remove("open");
-    }
-  });
-});
+</script>
 </script>
      
 
