@@ -307,8 +307,8 @@ nav ul.menu > li > a:hover {
 
 .menu a:hover {
   transform: translateY(-1px);
-  border-bottom: 2px solid var(--accent);
-  color: var(--accent);
+   border-bottom: 2px solid #ffd166;
+  color: #ffd166;
 }
 
 .menu a.active,
@@ -334,6 +334,7 @@ nav ul.menu > li > a:hover {
   background: white;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  pointer-events: auto;
 
   opacity: 0;
   visibility: hidden;
@@ -380,14 +381,7 @@ transform-origin: top;
   transform: rotate(180deg);
 }
 
-.dropdown::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 10px;
-}
+
 
 /* TENNIS PAGE LAYOUT */
 
