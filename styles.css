@@ -8,7 +8,7 @@
   --text-dark: #1a1a1a;
   --text-light: #eaeaea;
 
-  --accent: #0d3b66; /* fallback */
+  --accent: #0d3b66;
 }
 
 /* RESET */
@@ -54,7 +54,7 @@ header img {
 }
 
 /* overlay */
-.header::after {
+header::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -65,7 +65,7 @@ header img {
   );
   opacity: 0.7;
   border-radius: 12px;
-  z-index: 2;
+  z-index: 0;
 }
 .nav-container {
   display: flex;
@@ -693,10 +693,7 @@ nav ul.menu > li > a {
   color: #ffd166;
 }
 
-/* DEFAULT (fallback) */
-:root {
-  --accent: #0d3b66;
-}
+
 .tennis-page {
   --accent: #2e7d32;
 }
