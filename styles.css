@@ -40,7 +40,6 @@ header {
   z-index: 1;
  overflow: visible;      
   border-radius: 12px;
-   background: green !important;
 }
 
 header img {  
