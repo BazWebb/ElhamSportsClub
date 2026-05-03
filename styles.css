@@ -39,7 +39,7 @@ header {
   top: 0;
   z-index: 1000;
   position: relative;
- overflow: visible;     /* 🔑 keeps overlay inside */
+ overflow: visible;      
   border-radius: 12px;
 }
 
@@ -253,7 +253,7 @@ footer {
 .mobile-sub {
   max-height: 0;
    overflow: hidden;
- display: block;
+ display: flex;
   flex-direction: column;
   background: #0b2e4f;
   opacity: 0;                 /* 🔑 ADD THIS */
@@ -300,13 +300,14 @@ nav ul.menu > li > a {
   padding: 8px 0;
 }
 .menu a {
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   text-decoration: none;
 }
 
 .menu a:hover {
   transform: translateY(-1px);
   border-bottom: 2px solid var(--accent);
+  color: var(--accent);
 }
 
 .menu a.active,
@@ -314,12 +315,6 @@ nav ul.menu > li > a {
   color: var(--accent);
   border-bottom: 2px solid var(--accent);
 }
-
-.menu li a:hover {
-  color: var(--accent);
-}
-
-
 
 /* DROPDOWN MENU */
 /* DROPDOWN BASE */
@@ -336,13 +331,15 @@ nav ul.menu > li > a {
   min-width: 200px;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25),
+    0 0 12px rgba(255,255,255,0.08);
 
   opacity: 0;
   transform: translateY(10px) scale(0.98);
   pointer-events: none;
 
-  transition: all 0.2s ease;
+transition: transform 0.2s ease, opacity 0.2s ease;
   z-index: 9999;
 }
 
@@ -668,6 +665,8 @@ nav ul.menu > li > a {
     var(--accent)
   );
   opacity: 0.75;
+  z-index: 1;
+  
 }
 
 /* TEXT ON TOP */
