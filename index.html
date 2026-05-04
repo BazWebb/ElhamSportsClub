@@ -32,7 +32,7 @@
  
 <!-- HOME -->
 <section id="home">
-  <h1>Welcome to Elham Sports Club 11</h1>
+  <h1>Welcome to Elham Sports Club 12</h1>
   <div class="section-card">
     <p>A friendly, welcoming sports club offering tennis, badminton, pickleball and social events for all ages and abilities.</p>
   </div>
@@ -229,9 +229,14 @@ fetch('./nav.html')
     nav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", closeMenu);
     });
-
+ 
+      if (!nav || !overlay) {
+  console.error("Nav elements missing");
+  return;
+}
+      
   });
-   
+  
 </script>
 
      
