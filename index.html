@@ -200,21 +200,9 @@
     }
 
     overlay.addEventListener("click", closeMenu);
-
-   nav.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", function(e) {
-
-    // 🔑 If inside dropdown submenu → DO NOTHING
-    if (this.closest(".mobile-sub")) return;
-
-    // Otherwise close menu
-    closeMenu();
-  });
-});
-
-      nav.addEventListener("click", function(e) {
-  e.stopPropagation();
-});
+ nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
 
     // ✅ dropdowns
     nav.querySelectorAll(".mobile-dropdown-header").forEach(header => {
