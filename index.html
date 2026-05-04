@@ -23,50 +23,17 @@
 <header>
  
    
-      <header>
-  <div class="nav-container">
-
-    <div class="logo">
-      <span>Elham Sports Club</span>
-    </div>
-
-    <nav>
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-
-        <li class="dropdown">
-          <a href="#">About</a>
-          <ul class="dropdown-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">History</a></li>
-          </ul>
-        </li>
-
-        <li><a href="#">Sports</a></li>
-      </ul>
-    </nav>
-
-    <div class="hamburger">☰</div>
-
-  </div>
-
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Sports</a>
-  </div>
-
-  <div class="nav-overlay" id="navOverlay"></div>
+    
 </header>
        
  
-     
+       <div id="nav-placeholder"></div>
     
 </header>
  
 <!-- HOME -->
 <section id="home">
-  <h1>Welcome to Elham Sports Club 18</h1>
+  <h1>Welcome to Elham Sports Club 19</h1>
   <div class="section-card">
     <p>A friendly, welcoming sports club offering tennis, badminton, pickleball and social events for all ages and abilities.</p>
   </div>
@@ -195,14 +162,20 @@
   <p>© 2026 Elham Sports Club</p>
 </footer>
 
-    <script> 
+    <script>
+
  fetch('./nav.html')
   .then(res => res.text())
   .then(data => {
     const container = document.getElementById('nav-placeholder');
+
+    if (!container) {
+      console.error("nav-placeholder NOT FOUND");
+      return;
+    }
+
     container.innerHTML = data;
 
-    // 🔑 Scope everything INSIDE the loaded nav
     const nav = container.querySelector("#mobileNav");
     const overlay = container.querySelector("#navOverlay");
     const hamburger = container.querySelector(".hamburger");
@@ -212,13 +185,13 @@
       return;
     }
 
-    // ✅ HAMBURGER
+    // ✅ hamburger
     hamburger.addEventListener("click", () => {
       nav.classList.toggle("open");
       overlay.classList.toggle("active");
     });
 
-    // ✅ CLOSE MENU
+    // ✅ close menu
     function closeMenu() {
       nav.classList.remove("open");
       overlay.classList.remove("active");
@@ -230,22 +203,11 @@
       link.addEventListener("click", closeMenu);
     });
 
-    // ✅ DROPDOWNS
+    // ✅ dropdowns
     nav.querySelectorAll(".mobile-dropdown-header").forEach(header => {
       header.addEventListener("click", function() {
         const parent = this.parentElement;
         const sub = this.nextElementSibling;
-
-        nav.querySelectorAll(".mobile-dropdown").forEach(drop => {
-          if (drop !== parent) {
-            drop.classList.remove("open");
-            const otherSub = drop.querySelector(".mobile-sub");
-            if (otherSub) {
-              otherSub.classList.remove("open");
-              otherSub.style.maxHeight = null;
-            }
-          }
-        });
 
         parent.classList.toggle("open");
 
@@ -261,25 +223,7 @@
 
   })
   .catch(err => console.error("Nav load error:", err));
-
-    </script> 
-
-    <script>
-const nav = document.getElementById("mobileNav");
-const overlay = document.getElementById("navOverlay");
-const hamburger = document.querySelector(".hamburger");
-
-hamburger.addEventListener("click", () => {
-  nav.classList.toggle("open");
-  overlay.classList.toggle("active");
-});
-
-overlay.addEventListener("click", () => {
-  nav.classList.remove("open");
-  overlay.classList.remove("active");
-});
 </script>
-     
 
 </body>
 </html>
