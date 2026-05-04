@@ -32,7 +32,7 @@
  
 <!-- HOME -->
 <section id="home">
-  <h1>Welcome to Elham Sports Club 12</h1>
+  <h1>Welcome to Elham Sports Club 13</h1>
   <div class="section-card">
     <p>A friendly, welcoming sports club offering tennis, badminton, pickleball and social events for all ages and abilities.</p>
   </div>
@@ -162,7 +162,6 @@
 </footer>
 
  
-
 <script>
 fetch('./nav.html')
   .then(res => res.text())
@@ -171,73 +170,66 @@ fetch('./nav.html')
 
     const nav = document.getElementById("mobileNav");
     const overlay = document.getElementById("navOverlay");
+    const hamburger = document.querySelector(".hamburger");
 
-    // ✅ HAMBURGER
-    window.toggleMenu = function() {
+    if (!nav || !overlay || !hamburger) {
+      console.error("Nav elements missing");
+      return;
+    }
+
+    // ✅ HAMBURGER CLICK
+    hamburger.addEventListener("click", () => {
       nav.classList.toggle("open");
       overlay.classList.toggle("active");
-    }
-
-    // ✅ CLOSE MENU
-    window.closeMenu = function() {
-      nav.classList.remove("open");
-      overlay.classList.remove("active");
-
-      document.querySelectorAll(".mobile-dropdown").forEach(drop => {
-        drop.classList.remove("open");
-        const sub = drop.querySelector(".mobile-sub");
-        if (sub) {
-          sub.classList.remove("open");
-          sub.style.maxHeight = null;
-        }
-      });
-    }
-
-    // ✅ DROPDOWN
-    window.toggleDropdown = function(element) {
-      const parent = element.parentElement;
-      const sub = element.nextElementSibling;
-
-      document.querySelectorAll(".mobile-dropdown").forEach(drop => {
-        if (drop !== parent) {
-          drop.classList.remove("open");
-          const otherSub = drop.querySelector(".mobile-sub");
-          if (otherSub) {
-            otherSub.classList.remove("open");
-            otherSub.style.maxHeight = null;
-          }
-        }
-      });
-
-      parent.classList.toggle("open");
-
-      if (sub.classList.contains("open")) {
-        sub.classList.remove("open");
-        sub.style.maxHeight = null;
-      } else {
-        sub.classList.add("open");
-        sub.style.maxHeight = sub.scrollHeight + "px";
-      }
-    }
-
-    // ✅ STOP MENU FROM CLOSING WHEN CLICKING INSIDE
-    nav.addEventListener("click", function(e) {
-      e.stopPropagation();
     });
 
-    // ✅ CLOSE ONLY WHEN CLICKING LINKS (NOT DROPDOWN HEADERS)
+    // ✅ CLOSE MENU
+    function closeMenu() {
+      nav.classList.remove("open");
+      overlay.classList.remove("active");
+    }
+
+    // overlay click
+    overlay.addEventListener("click", closeMenu);
+
+    // links close menu
     nav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", closeMenu);
     });
- 
-      if (!nav || !overlay) {
-  console.error("Nav elements missing");
-  return;
-}
-      
-  });
-  
+
+    // ✅ DROPDOWNS
+    document.querySelectorAll(".mobile-dropdown-header").forEach(header => {
+      header.addEventListener("click", function() {
+        const parent = this.parentElement;
+        const sub = this.nextElementSibling;
+
+        document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+          if (drop !== parent) {
+            drop.classList.remove("open");
+            const otherSub = drop.querySelector(".mobile-sub");
+            if (otherSub) {
+              otherSub.classList.remove("open");
+              otherSub.style.maxHeight = null;
+            }
+          }
+        });
+
+        parent.classList.toggle("open");
+
+        if (sub.classList.contains("open")) {
+          sub.classList.remove("open");
+          sub.style.maxHeight = null;
+        } else {
+          sub.classList.add("open");
+          sub.style.maxHeight = sub.scrollHeight + "px";
+        }
+      });
+    });
+
+  })
+  .catch(err => console.error("Nav load error:", err));
 </script>
+ 
 
      
 
