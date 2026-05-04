@@ -37,7 +37,7 @@ header {
   padding: 15px 20px;
   position: relative;
   top: 0;
-  z-index: 9999;
+  z-index: 1;
  overflow: visible;      
   border-radius: 12px;
 }
@@ -117,7 +117,7 @@ nav {
   visibility: hidden;
 transition: transform 0.25s ease, opacity 0.2s ease;
   z-index: 2000;  /* 🔑 higher than everything */
-   back-filter: none;
+   backdrop-filter: none;
   isolation: isolate;  
 }
 
@@ -135,7 +135,8 @@ transition: transform 0.25s ease, opacity 0.2s ease;
 section {
   padding: 60px 20px;
   max-width: 1100px;
- 
+ background: rgba(0,0,0,0.15);
+  border-radius: 16px;
   margin: 30px auto;
 }
 
@@ -230,21 +231,21 @@ footer {
 
 
 
-/* MOBILE OWN */
-.mobile-own {
+/* MOBILE DROPDOWN */
+.mobile-dropdown {
   display: block;
   width: 100%;
   border-top: 1px solid #ffffff33;
 }
 
-.mobile-own-header {
+.mobile-dropdown-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px;
 }
 
-/* OWN CONTAINER */
+/* DROPDOWN CONTAINER */
 .mobile-sub {
   max-height: 0;
    overflow: hidden;
@@ -317,49 +318,38 @@ nav ul.menu > li > a:hover {
   border-bottom: 2px solid var(--accent);
 }
 
-/* OWN MENU */
-/* OWN BASE */
+/* DROPDOWN MENU */
+/* DROPDOWN BASE */
 
 .dropdown {
   position: relative;
 }
 
-/* BRIDGE THE GAP */
-.dropdown::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 15px;   /* ⬅ increase this */
-}
-
 /* MENU */
 .dropdown-menu {
   position: absolute;
- top: 100%;   /* 🔑 NO calc, NO gap */
+  top: 100%;
   left: 0;
 
   min-width: 200px;
   background: white;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-   pointer-events: none;
+  pointer-events: auto;
 
   opacity: 0;
   visibility: hidden;
-   transform: scale(0.98);
+  transform: translateY(8px);
 transform-origin: top;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-   z-index: 99999;
+  transition: all 0.2s ease;
+  z-index: 9999;
 }
 
 /* SHOW */
 .dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
-   transform: scale(1);
+  transform: translateY(0);
 }
 
 /* LINKS */
@@ -657,7 +647,6 @@ transform-origin: top;
   position: relative;
   overflow: hidden;
   border-radius: 16px;
-  z-index: 1;
 }
 
 /* IMAGE */
