@@ -231,21 +231,21 @@ footer {
 
 
 
-/* MOBILE DROPDOWN */
-.mobile-dropdown {
+/* MOBILE OWN */
+.mobile-own {
   display: block;
   width: 100%;
   border-top: 1px solid #ffffff33;
 }
 
-.mobile-dropdown-header {
+.mobile-own-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px;
 }
 
-/* DROPDOWN CONTAINER */
+/* OWN CONTAINER */
 .mobile-sub {
   max-height: 0;
    overflow: hidden;
@@ -318,17 +318,27 @@ nav ul.menu > li > a:hover {
   border-bottom: 2px solid var(--accent);
 }
 
-/* DROPDOWN MENU */
-/* DROPDOWN BASE */
+/* OWN MENU */
+/* OWN BASE */
 
 .dropdown {
   position: relative;
 }
 
+/* BRIDGE THE GAP */
+.dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 15px;   /* ⬅ increase this */
+}
+
 /* MENU */
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 2px);  /* ⬅ reduce gap 
   left: 0;
 
   min-width: 200px;
