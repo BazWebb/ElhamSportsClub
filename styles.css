@@ -37,7 +37,7 @@ header {
   padding: 15px 20px;
   position: relative;
   top: 0;
-   z-index: 1000;   /* ✅ ensures dropdown sits above hero */
+   z-index: 9999   /* ✅ ensures dropdown sits above hero */
 
  overflow: visible;      
   border-radius: 12px;
@@ -117,7 +117,7 @@ nav {
   transform: translateX(-100%);
   visibility: hidden;
 transition: transform 0.25s ease, opacity 0.2s ease;
-  z-index: 2000;  /* 🔑 higher than everything */
+  z-index: 10000;  /* 🔑 higher than everything */
    backdrop-filter: none;
   isolation: isolate;  
 }
@@ -164,7 +164,7 @@ section {
   pointer-events: none;
   
   transition: opacity 0.3s ease;
-  z-index: 1500;
+  z-index: 9000;
 }
 
 .nav-overlay.active {
