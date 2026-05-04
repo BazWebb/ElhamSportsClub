@@ -33,7 +33,7 @@
  
 <!-- HOME -->
 <section id="home">
-  <h1>Welcome to Elham Sports Club 20</h1>
+  <h1>Welcome to Elham Sports Club 22</h1>
   <div class="section-card">
     <p>A friendly, welcoming sports club offering tennis, badminton, pickleball and social events for all ages and abilities.</p>
   </div>
@@ -199,9 +199,20 @@
 
     overlay.addEventListener("click", closeMenu);
 
-    nav.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", closeMenu);
-    });
+   nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(e) {
+
+    // 🔑 If inside dropdown submenu → DO NOTHING
+    if (this.closest(".mobile-sub")) return;
+
+    // Otherwise close menu
+    closeMenu();
+  });
+});
+
+      nav.addEventListener("click", function(e) {
+  e.stopPropagation();
+});
 
     // ✅ dropdowns
     nav.querySelectorAll(".mobile-dropdown-header").forEach(header => {
