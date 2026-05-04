@@ -242,8 +242,15 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+    width: 100%;              /* 🔑 force full width */
   padding: 14px 20px;
+    cursor: pointer;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
+ .mobile-dropdown-header span {
+    margin-left: auto;        /* 🔑 pushes arrow to the right */
+  }
 
 /* DROPDOWN CONTAINER */
 .mobile-sub {
@@ -255,6 +262,11 @@ footer {
   opacity: 0;                 /* 🔑 ADD THIS */
   transition: max-height 0.3s ease;
 }
+
+ .mobile-nav a {
+    width: 100%;
+    display: block;           /* 🔑 ensures full-width links */
+  }
 
 /* OPEN STATE */
 .mobile-sub.open {
