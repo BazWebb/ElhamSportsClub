@@ -23,7 +23,41 @@
 <header>
  
    
-      <div id="nav-placeholder">Loading...</div>
+      <header>
+  <div class="nav-container">
+
+    <div class="logo">
+      <span>Elham Sports Club</span>
+    </div>
+
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">About</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">History</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#">Sports</a></li>
+      </ul>
+    </nav>
+
+    <div class="hamburger">☰</div>
+
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Sports</a>
+  </div>
+
+  <div class="nav-overlay" id="navOverlay"></div>
+</header>
        
  
      
@@ -230,6 +264,21 @@
 
     </script> 
 
+    <script>
+const nav = document.getElementById("mobileNav");
+const overlay = document.getElementById("navOverlay");
+const hamburger = document.querySelector(".hamburger");
+
+hamburger.addEventListener("click", () => {
+  nav.classList.toggle("open");
+  overlay.classList.toggle("active");
+});
+
+overlay.addEventListener("click", () => {
+  nav.classList.remove("open");
+  overlay.classList.remove("active");
+});
+</script>
      
 
 </body>
