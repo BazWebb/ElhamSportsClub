@@ -37,7 +37,7 @@ header {
   padding: 15px 20px;
   position: relative;
   top: 0;
-  z-index: 1;
+  z-index: 9999;
  overflow: visible;      
   border-radius: 12px;
 }
@@ -352,7 +352,7 @@ nav ul.menu > li > a:hover {
   transform: translateY(8px);
 transform-origin: top;
   transition: all 0.2s ease;
-  z-index: 9999;
+  z-index: 10000;
 }
 
 /* SHOW */
@@ -657,6 +657,7 @@ transform-origin: top;
   position: relative;
   overflow: hidden;
   border-radius: 16px;
+  z-index: 1;
 }
 
 /* IMAGE */
