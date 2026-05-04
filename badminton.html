@@ -82,52 +82,78 @@
 
 </div>
 
-  <script>
-fetch('nav.html')
+   <script>
+
+ fetch('./nav.html')
   .then(res => res.text())
   .then(data => {
-    document.getElementById('nav-placeholder').innerHTML = data;
+    const container = document.getElementById('nav-placeholder');
 
-    // ✅ Toggle menu
-    window.toggleMenu = function() {
-      const nav = document.getElementById("mobileNav");
-      const overlay = document.getElementById("navOverlay");
+    if (!container) {
+      console.error("nav-placeholder NOT FOUND");
+      return;
+    }
 
+    container.innerHTML = data;
+
+    const nav = container.querySelector("#mobileNav");
+    const overlay = container.querySelector("#navOverlay");
+    const hamburger = container.querySelector(".hamburger");
+
+    if (!nav || !overlay || !hamburger) {
+      console.error("Nav elements missing");
+      return;
+    }
+
+    // ✅ hamburger
+    hamburger.addEventListener("click", () => {
       nav.classList.toggle("open");
       overlay.classList.toggle("active");
-    }
+    });
 
-    // ✅ Dropdown (class-based version — not display!)
-    window.toggleDropdown = function(element) {
-      const parent = element.parentElement;
-      const sub = element.nextElementSibling;
-
-      document.querySelectorAll(".mobile-dropdown").forEach(drop => {
-        if (drop !== parent) {
-          drop.classList.remove("open");
-          drop.querySelector(".mobile-sub").classList.remove("open");
-        }
-      });
-
-      parent.classList.toggle("open");
-      sub.classList.toggle("open");
-    }
-
-    // ✅ Close menu
-    window.closeMenu = function() {
-      const nav = document.getElementById("mobileNav");
-      const overlay = document.getElementById("navOverlay");
-
+    // ✅ close menu
+    function closeMenu() {
       nav.classList.remove("open");
       overlay.classList.remove("active");
-
-      document.querySelectorAll(".mobile-dropdown").forEach(drop => {
-        drop.classList.remove("open");
-        const sub = drop.querySelector(".mobile-sub");
-        if (sub) sub.classList.remove("open");
-      });
     }
+
+    overlay.addEventListener("click", closeMenu);
+
+   nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(e) {
+
+    // 🔑 If inside dropdown submenu → DO NOTHING
+    if (this.closest(".mobile-sub")) return;
+
+    // Otherwise close menu
+    closeMenu();
   });
+});
+
+      nav.addEventListener("click", function(e) {
+  e.stopPropagation();
+});
+
+    // ✅ dropdowns
+    nav.querySelectorAll(".mobile-dropdown-header").forEach(header => {
+      header.addEventListener("click", function() {
+        const parent = this.parentElement;
+        const sub = this.nextElementSibling;
+
+        parent.classList.toggle("open");
+
+        if (sub.classList.contains("open")) {
+          sub.classList.remove("open");
+          sub.style.maxHeight = null;
+        } else {
+          sub.classList.add("open");
+          sub.style.maxHeight = sub.scrollHeight + "px";
+        }
+      });
+    });
+
+  })
+  .catch(err => console.error("Nav load error:", err));
 </script>
 
 
