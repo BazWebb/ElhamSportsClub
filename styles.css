@@ -37,7 +37,8 @@ header {
   padding: 15px 20px;
   position: relative;
   top: 0;
-  z-index: 1;
+   z-index: 1000;   /* ✅ ensures dropdown sits above hero */
+
  overflow: visible;      
   border-radius: 12px;
 }
@@ -660,7 +661,7 @@ transform-origin: top;
   text-align: center;
   padding: 60px 20px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;   /* ✅ FIX */
   border-radius: 16px;
 }
 
@@ -684,6 +685,7 @@ transform-origin: top;
   );
   opacity: 0.75;
   z-index: 1;
+  pointer-events: none;   /* ✅ prevents blocking hover */
   
 }
 
