@@ -117,7 +117,7 @@ nav {
   visibility: hidden;
 transition: transform 0.25s ease, opacity 0.2s ease;
   z-index: 2000;  /* 🔑 higher than everything */
-   backdrop-filter: none;
+   back-filter: none;
   isolation: isolate;  
 }
 
@@ -338,7 +338,7 @@ nav ul.menu > li > a:hover {
 /* MENU */
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 2px);  /* ⬅ reduce gap 
+ top: 100%;   /* 🔑 NO calc, NO gap */
   left: 0;
 
   min-width: 200px;
@@ -352,14 +352,14 @@ nav ul.menu > li > a:hover {
   transform: translateY(8px);
 transform-origin: top;
   transition: all 0.2s ease;
-  z-index: 10000;
+   z-index: 99999;
 }
 
 /* SHOW */
 .dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+   transform: scale(1);
 }
 
 /* LINKS */
