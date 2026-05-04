@@ -32,7 +32,7 @@
  
 <!-- HOME -->
 <section id="home">
-  <h1>Welcome to Elham Sports Club 15</h1>
+  <h1>Welcome to Elham Sports Club 16</h1>
   <div class="section-card">
     <p>A friendly, welcoming sports club offering tennis, badminton, pickleball and social events for all ages and abilities.</p>
   </div>
@@ -161,23 +161,23 @@
   <p>© 2026 Elham Sports Club</p>
 </footer>
 
- 
-<script>
-fetch('./nav.html')
+ fetch('./nav.html')
   .then(res => res.text())
   .then(data => {
-    document.getElementById('nav-placeholder').innerHTML = data;
+    const container = document.getElementById('nav-placeholder');
+    container.innerHTML = data;
 
-    const nav = document.getElementById("mobileNav");
-    const overlay = document.getElementById("navOverlay");
-    const hamburger = document.querySelector(".hamburger");
+    // 🔑 Scope everything INSIDE the loaded nav
+    const nav = container.querySelector("#mobileNav");
+    const overlay = container.querySelector("#navOverlay");
+    const hamburger = container.querySelector(".hamburger");
 
     if (!nav || !overlay || !hamburger) {
       console.error("Nav elements missing");
       return;
     }
 
-    // ✅ HAMBURGER CLICK
+    // ✅ HAMBURGER
     hamburger.addEventListener("click", () => {
       nav.classList.toggle("open");
       overlay.classList.toggle("active");
@@ -189,21 +189,19 @@ fetch('./nav.html')
       overlay.classList.remove("active");
     }
 
-    // overlay click
     overlay.addEventListener("click", closeMenu);
 
-    // links close menu
     nav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", closeMenu);
     });
 
     // ✅ DROPDOWNS
-    document.querySelectorAll(".mobile-dropdown-header").forEach(header => {
+    nav.querySelectorAll(".mobile-dropdown-header").forEach(header => {
       header.addEventListener("click", function() {
         const parent = this.parentElement;
         const sub = this.nextElementSibling;
 
-        document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+        nav.querySelectorAll(".mobile-dropdown").forEach(drop => {
           if (drop !== parent) {
             drop.classList.remove("open");
             const otherSub = drop.querySelector(".mobile-sub");
@@ -228,7 +226,7 @@ fetch('./nav.html')
 
   })
   .catch(err => console.error("Nav load error:", err));
-</script>
+
  
 
      
