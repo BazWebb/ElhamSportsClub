@@ -778,4 +778,10 @@ html {
 .copy-btn.copied {
   background: #2e7d32; /* green */
 }
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 </style>
