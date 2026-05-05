@@ -19,7 +19,7 @@
  
 <!-- HOME -->
 <section id="home">
-  <h1>Welcome to Elham Sports Club 30</h1>
+  <h1>Welcome to Elham Sports Club 31</h1>
   <div class="section-card">
     <p>A friendly, welcoming sports club offering tennis, badminton, pickleball and social events for all ages and abilities.</p>
   </div>
@@ -146,9 +146,11 @@
 
 <section id="location">
   <h2>📍 Find Us</h2>
-
+<p style="opacity:0.8;">Located in the heart of Elham village</p>
   <div class="section-card">
     <p>Elham Sports Club, Elham, Kent</p>
+
+      
 
     <div class="map-container">
      
@@ -168,6 +170,16 @@
     </p>
 
   </div>
+
+    <p>
+  📍 Elham Sports Club, Elham, Kent  
+  <br>
+  <strong id="postcode">CT4 6TB</strong>
+</p>
+
+<button class="copy-btn" onclick="copyPostcode()">
+  Copy postcode
+</button>
 </section>
     
 <footer>
@@ -245,7 +257,23 @@ fetch('nav.html')
   })
   .catch(err => console.error("Nav load error:", err));
 </script>
+<script>
+function copyPostcode() {
+  const postcode = document.getElementById("postcode").innerText;
 
+  navigator.clipboard.writeText(postcode).then(() => {
+    const btn = document.querySelector(".copy-btn");
+
+    btn.innerText = "Copied!";
+    btn.classList.add("copied");
+
+    setTimeout(() => {
+      btn.innerText = "Copy postcode";
+      btn.classList.remove("copied");
+    }, 1500);
+  });
+}
+</script>
 </body>
 </html>
 ```
