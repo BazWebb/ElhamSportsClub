@@ -308,6 +308,35 @@ section {
 }
 
 /* =========================
+   BADGES
+========================= */
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 8px;
+  background: var(--accent);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  letter-spacing: 0.3px;
+}
+
+/* Variants */
+.badge.junior {
+  background: linear-gradient(135deg, #2196F3, #64b5f6);
+}
+
+.badge.intermediate {
+  background: linear-gradient(135deg, #ff9800, #ffb74d);
+}
+
+.badge.relaxed {
+  background: linear-gradient(135deg, #9c27b0, #ce93d8);
+}
+
+/* =========================
    MAP
 ========================= */
 .map-container {
