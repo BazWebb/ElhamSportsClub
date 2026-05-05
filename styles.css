@@ -365,6 +365,30 @@ section {
   margin-top: 10px;
 }
 
+.cta-btn.tennis {
+  background: #2e7d32;  /* tennis green */
+}
+
+.cta-btn.tennis:hover {
+  background: #276a2b;  /* slightly darker */
+}
+
+.cta-btn.badminton {
+  background: #1565c0;  /* badminton blue */
+}
+
+.cta-btn.badminton:hover {
+  background: #0d47a1;  /* slightly darker */
+}
+
+.cta-btn.pickleball {
+  background: #ef6c00;  /* pickleball orange */
+}
+
+.cta-btn.pickleball:hover {
+  background: #276a2b;  /* slightly darker */
+}
+
 /* =========================
    BADGES
 ========================= */
