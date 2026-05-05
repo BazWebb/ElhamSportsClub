@@ -1,17 +1,24 @@
-
-<style>
-
+/* =========================
+   VARIABLES
+========================= */
 :root {
   --bg-dark: #081a2b;
   --bg-mid: #122b45;
   --surface: #ffffff;
   --text-dark: #1a1a1a;
   --text-light: #eaeaea;
-
   --accent: #0d3b66;
 }
 
-/* RESET */
+/* PAGE THEMES */
+.home-page { --accent: #0d3b66; }
+.tennis-page { --accent: #2e7d32; }
+.badminton-page { --accent: #1565c0; }
+.pickleball-page { --accent: #ef6c00; }
+
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -19,66 +26,47 @@
   font-family: Arial, sans-serif;
 }
 
-/* BODY */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   line-height: 1.6;
-    background:
+  background:
     radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 40%),
     linear-gradient(180deg, var(--bg-dark), var(--bg-mid));
   color: var(--text-light);
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 header {
-   background: linear-gradient(135deg, var(--accent, #0d3b66), #0b2e4f);
+  background: linear-gradient(135deg, var(--accent), #0b2e4f);
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  color: white;
   padding: 15px 20px;
   position: relative;
-  top: 0;
-   z-index: 9999   /* ✅ ensures dropdown sits above hero */
-
- overflow: visible;      
+  z-index: 9999;
+  overflow: visible;
   border-radius: 12px;
 }
-
-header img {  
- display: block;
-  margin: 0 auto;
-  width: 75%;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  position: relative;
-  z-index: 1;
-}
-
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow: visible;
   position: relative;
-  z-index: 2;
-}
-
-.logo,
-nav,
-.hamburger {
-  position: relative;
-  z-index: 2;
 }
 
 .logo {
-   display: flex;
+  display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .logo img {
-  height: 40px;     /* 🔑 controls size */
-  width: auto;
+  height: 40px;
 }
 
 .logo span {
@@ -86,84 +74,142 @@ nav,
   font-size: 1.5rem;
 }
 
-/* NAV WRAPPER */
-nav {
+/* =========================
+   DESKTOP MENU
+========================= */
+nav ul.menu {
   display: flex;
+  list-style: none;
+  gap: 25px;
+  align-items: center;
 }
 
-/* HAMBURGER */
+nav ul.menu > li {
+  position: relative;
+}
+
+nav ul.menu > li > a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 0;
+}
+
+.menu a:hover {
+  color: #ffd166;
+  border-bottom: 2px solid #ffd166;
+}
+
+/* =========================
+   DROPDOWN (DESKTOP)
+========================= */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 16px;
+  color: #0d3b66;
+}
+
+.dropdown-menu a:hover {
+  background: #f0f4f8;
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
 .hamburger {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
-  color: white; 
+  color: white;
 }
 
-/* MOBILE MENU */
-/* MOBILE NAV PANEL */
 .mobile-nav {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
   width: 260px;
+  height: 100vh;
   background: #0d3b66;
+
   display: flex;
-  flex-direction: column;   /* 🔑 force vertical stacking */
-  flex-wrap: nowrap;   /* 🔑 prevents side-by-side */
+  flex-direction: column;
   padding-top: 70px;
- opacity: 0; /* ensure no transparency */
-  /* hidden by default */
+
   transform: translateX(-100%);
+  opacity: 0;
   visibility: hidden;
-transition: transform 0.25s ease, opacity 0.2s ease;
-  z-index: 10000;  /* 🔑 higher than everything */
-   backdrop-filter: none;
-  isolation: isolate;  
+
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  z-index: 10000;
 }
 
-.mobile-nav > * {
-  width: 100%;
+.mobile-nav.open {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 .mobile-nav a {
   padding: 14px 20px;
   color: white;
   text-decoration: none;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 4px 0 20px rgba(0,0,0,0.4);
-  display: block;           /* 🔑 prevents inline behaviour */
-  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* NS */
-section {
-  padding: 60px 20px;
-  max-width: 1100px;
- background: rgba(0,0,0,0.15);
-  border-radius: 16px;
-  margin: 30px auto;
+/* MOBILE DROPDOWN */
+.mobile-dropdown-header {
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
-/* SHOW PANEL */
-.mobile-nav.open {
-  transform: translateX(0); /* ✅ visible when open */
-  visibility: visible;
+.mobile-sub {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background: #0b2e4f;
+  transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+.mobile-sub.open {
+  max-height: 300px;
   opacity: 1;
 }
 
-/* OVERLAY */
+/* =========================
+   OVERLAY
+========================= */
 .nav-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0,0,0,0.4);
   opacity: 0;
   pointer-events: none;
-  
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s;
   z-index: 9000;
 }
 
@@ -172,613 +218,86 @@ section {
   pointer-events: all;
 }
 
-.section-card {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  margin-top: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  color: #0d3b66;
+/* =========================
+   LAYOUT
+========================= */
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: 30px auto;
+  background: rgba(0,0,0,0.15);
+  border-radius: 16px;
 }
 
-h1 { 
-  color: #ffffff;
-}
-
-h2, h3 {
-  margin-bottom: 15px;
-/*  color: #0d3b66; */
-  color: #000000; 
-}
-
-p {
-  margin-bottom: 10px;
-}
-
-/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  background: rgba(255,255,255,0.03);
-  padding: 20px;
-  border-radius: 16px;
 }
 
-.grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #0d3b66;
-  color: white;
-  margin-top: 40px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-  }
-
-  .hamburger {
-    display: block;
-    z-index: 1100;
-  }
-}
-
-
-
-
-
-
-
-/* MOBILE DROPDOWN */
-.mobile-dropdown {
-  display: block;
-  width: 100%;
-  border-top: 1px solid #ffffff33;
-}
-
-.mobile-dropdown-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-    width: 100%;              /* 🔑 force full width */
-  padding: 14px 20px;
-    cursor: pointer;
-
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.mobile-dropdown-header:hover {
-  background: rgba(255,255,255,0.05);
-}
-
-.mobile-dropdown-header .arrow {
-  margin-left: auto;
-}
-
-/* DROPDOWN CONTAINER */
-.mobile-sub {
-  max-height: 0;
-   overflow: hidden;
- display: flex;
-  flex-direction: column;
-  background: #0b2e4f;
-  opacity: 0;                 /* 🔑 ADD THIS */
-  transition: max-height 0.3s ease;
-}
-
- 
-
-/* OPEN STATE */
-.mobile-sub.open {
-  max-height: 300px; /* enough for items */
-  opacity: 1;                 /* 🔑 ADD THIS */
-}
-
-/* LINKS */
-.mobile-sub a {
-  padding: 10px 20px;
-   padding-left: 28px;
-  font-size: 0.9rem;
-}
-
-
-
-/* MAIN MENU */
-nav ul.menu {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-}
-
-/* MENU ITEMS */
-nav ul.menu > li {
-  position: relative;
-}
-
-/* LINKS */
-nav ul.menu > li > a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  display: block;
-  padding: 8px 0;
-}
-
-nav ul.menu > li > a:hover {
-  color: #ffd166; /* nice highlight */
-}
-
-.menu a {
-  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-  text-decoration: none;
-  color: inherit;
-}
-
-.menu a:hover {
-  transform: translateY(-1px);
-   border-bottom: 2px solid #ffd166;
-  color: #ffd166;
-}
-
-.menu a.active,
-.sports-nav a.active {
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent);
-}
-
-/* DROPDOWN MENU */
-/* DROPDOWN BASE */
-
-.dropdown {
-  position: relative;
-}
-
-/* MENU */
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-
-  min-width: 200px;
+.section-card {
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    pointer-events: none;   /* 🔑 FIX */
-
-  opacity: 0;
-  visibility: hidden;
- transform: none;   /* ✅ removes hover gap */
-transform-origin: top;
-   transition: opacity 0.2s ease;
-  z-index: 9999;
-}
-
-/* SHOW */
-.dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;   /* 🔑 only active when open */
-  transform: translateY(0);
-}
-
-.dropdown::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 12px;   /* 🔑 invisible bridge */
-}
-
-/* LINKS */
-.dropdown-menu a {
-  display: block;
-  padding: 12px 16px;
   color: #0d3b66;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-
-.dropdown-menu a:hover {
-  background: #f0f4f8;
-}
-
-.dropdown > a {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.dropdown > a::after {
-  content: "▾";
-  font-size: 0.7em;
-  transition: transform 0.25s ease;
-}
-
-.dropdown.open > a::after,
-.dropdown:hover > a::after {
-  transform: rotate(180deg);
-}
-
-
-
-/* TENNIS PAGE LAYOUT */
-
-
-
-@keyframes accentPulse {
-  0% { box-shadow: 0 0 0 var(--accent); }
-  50% { box-shadow: 0 0 10px var(--accent); }
-  100% { box-shadow: 0 0 0 var(--accent); }
-}
-
-/* CARD STYLE */
-/* CARD BASE */
-.card {
-   background: var(--surface);
-  color: var(--text-dark);
-  padding: 22px;
-  border-radius: 18px;
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.35),
-    0 0 0 1px rgba(255,255,255,0.05);
-  transition: all 0.25s ease;
-   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.5s ease forwards;
-  position: relative;
-}
-
-/* TOP ACCENT BAR */
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 0%;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
-
-/* HOVER EFFECT */
-.card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.4),
-    0 0 12px var(--accent),
-    0 0 25px rgba(255,255,255,0.1);
-}
-
-.card:hover::before {
-  height: 6px;
-   width: 100%;
-}
-
-/* TEXT */
-.card h3 {
-  margin-top: 10px;
-  font-size: 1.2rem;
-}
-
-.card p {
-  font-size: 0.95rem;
-  color: #555;
-}
-
-
-
-.card.highlight {
-  background: linear-gradient(135deg, var(--accent), #222);
-  color: white;
-  box-shadow: 0 12px 30px rgba(13,59,102,0.4);
-   animation: accentPulse 2.5s infinite;
-}
-
-.card.highlight::before {
-  background: #ffd166;
-}
-
-.card.highlight p {
-  color: #f1f1f1;
-}
-
-.card:nth-child(1) { animation-delay: 0.1s; }
-.card:nth-child(2) { animation-delay: 0.2s; }
-.card:nth-child(3) { animation-delay: 0.3s; }
-.card:nth-child(4) { animation-delay: 0.4s; }
-.card:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* TIME */
-.time {
-  font-weight: bold;
-  margin: 8px 0;
-}
-
-/* BADGES */
-.badge {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 8px;
-  background: var(--accent);
-
-}
-
-/* Colours */
-.badge.junior {
-  background: linear-gradient(135deg, #2196F3, #64b5f6);
-}
-
-.badge.intermediate {
-  background: linear-gradient(135deg, #ff9800, #ffb74d);
-}
-
-.badge.relaxed {
-  background: linear-gradient(135deg, #9c27b0, #ce93d8);
-}
-
-
-
-.tennis-container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
-}
-
-/* HEADINGS */
-.tennis-container h1 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-   text-align: center;
-}
-
-.tennis-container h2 {
-  margin-top: 30px;
-  font-size: 1.6rem;
-  border-bottom: 2px solid #0d3b66;
-  padding-bottom: 5px; 
-  color: #0d3b66;
-}
-
-.tennis-container h3 {
-  margin-top: 20px;
-  color: #0d3b66;
-}
-
-/* TEXT */
-.tennis-container p {
-  margin-bottom: 12px;
-  line-height: 1.7;
-}
-
-/* LISTS */
-.tennis-container ul {
-  margin: 15px 0;
-  padding-left: 20px;
-}
-
-.tennis-container li {
-  margin-bottom: 8px;
-}
-
-/* TEXT LINKS */
-.tennis-container a,
-.section-card a {
-  text-decoration: underline;
-  color: var(--accent);
-}
-
-/* CARD STYLE SECTIONS */
-.tennis-section {
-  background: white;
-  padding: 10px 0;
-  margin-top: 40px;
+  padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    color: white;
 }
 
-
-
- .tennis-section h2 {
-  color: var(--accent);
-}
-
-/* CONTACT BOX */
-.contact-box {
-  background: #eaf4ff;
-  padding: 15px;
-  border-left: 4px solid #0d3b66;
-  margin-top: 15px;
-  border-radius: 6px;
-}
-
-.arrow {
-  display: none;
-}
-
-/* MOBILE IMPROVEMENTS */
-@media (max-width: 768px) {
-  .tennis-container {
-    padding: 20px 15px;
-  }
-
-  .tennis-container h1 {
-    font-size: 1.6rem;
-  }
-
-  .tennis-section {
-    padding: 18px;
-  }
-
-  .arrow {
-  float: right;
-     display: inline-block;
-  transition: transform 0.3s ease;
-}
-  
- header img {
-    width: 100%;   /* match grid/container */
-  }
-  
-
-.mobile-dropdown.open .arrow {
-  transform: rotate(180deg);
-}
-
-  .mobile-dropdown.open .mobile-dropdown-header {
-  color: var(--accent);
-}
-
-  
-.logo img {
-    height: 70px;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
-  background: transparent;
-  }
-    .logo span {
-    font-size: 2rem;
-  }
-}
-
+/* =========================
+   HERO
+========================= */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-              url('tennisplayers.jpg') center/cover;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
   position: relative;
-  overflow: visible;   /* ✅ FIX */
   border-radius: 16px;
+  overflow: visible;
 }
 
-/* IMAGE */
-.hero img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
-}
-
-/* OVERLAY */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.3),
-    var(--accent)
-  );
+  background: linear-gradient(rgba(0,0,0,0.3), var(--accent));
   opacity: 0.75;
-  z-index: 1;
-  pointer-events: none;   /* ✅ prevents blocking hover */
-  
+  pointer-events: none;
 }
 
-/* TEXT ON TOP */
 .hero-content {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  z-index: 2;
   color: white;
+  z-index: 2;
 }
 
-.hero-content h1 {
-  font-size: 2rem;
-  margin-bottom: 5px;
+/* =========================
+   CARDS
+========================= */
+.card {
+  background: var(--surface);
+  color: var(--text-dark);
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  transition: 0.25s;
 }
 
-.hero-content p {
-  font-size: 1rem;
-  opacity: 0.9;
+.card:hover {
+  transform: translateY(-6px);
 }
 
-.sports-nav a.active {
-  color: #ffd166;
-}
-
-.home-page {
-  --accent: #0d3b66; /* same as default, but explicit */
-}
-
-.tennis-page {.copy
-  --accent: #2e7d32;
-}
-.badminton-page {
-  --accent: #1565c0;
-}
-.pickleball-page {
-  --accent: #ef6c00;
-}
-
-
-
-.dropdown {
-  position: relative;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-.map-container {
-  margin-top: 15px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 350px;
-  border: 0;
-  display: block;
-}
-.copy-btn {
-  margin-top: 10px;
+/* =========================
+   BUTTONS
+========================= */
+.copy-btn,
+.cta-btn {
+  display: inline-block;
   padding: 10px 16px;
-  border: none;
   border-radius: 999px;
   background: var(--accent);
   color: white;
+  text-decoration: none;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
-  display: inline-block;   /* 🔑 FIX */
-  text-decoration: none;   /* 🔑 FIX */
-}
-
-.copy-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-/* success state */
-.copy-btn.copied {
-  background: #2e7d32; /* green */
+  border: none;
 }
 
 .button-group {
@@ -787,5 +306,26 @@ html {
   flex-wrap: wrap;
   margin-top: 10px;
 }
+
+/* =========================
+   MAP
+========================= */
+.map-container {
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
 }
-</style>
+
+.map-container iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .hamburger { display: block; }
+}
