@@ -246,6 +246,15 @@ section {
   gap: 20px;
 }
 
+.grid .section-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid .section-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
 .section-card {
   background: white;
   color: #0d3b66;
