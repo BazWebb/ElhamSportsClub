@@ -255,8 +255,12 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(0,0,0,0.3), var(--accent));
-  opacity: 0.75;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.3),
+    rgba(0,0,0,0.4)
+  );
+  opacity: 0.5;
   pointer-events: none;
 }
 
