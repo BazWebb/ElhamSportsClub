@@ -767,6 +767,8 @@ html {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  display: inline-block;   /* 🔑 FIX */
+  text-decoration: none;   /* 🔑 FIX */
 }
 
 .copy-btn:hover {
