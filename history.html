@@ -1,1 +1,179 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pickleball - Elham Sports Club</title>
+
+<style>
+   
+</style>
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="pickleball-page">
+
+<header>
+   
+<div id="nav-placeholder"></div>
+
+</header>
+
+  <!-- HEADER -->
+  
+
+ <div class="hero">
+  <img src="pickleball.png" alt="Pickleball Players">
+
+  <div class="hero-content">
+    <h1>🏓 Pickleball</h1>
+    <p>Elham Sports Club</p>
+  </div>
+</div>
+
+ 
+
+<main>
+  <div class="tennis-container">
+
+    <!-- SECTION: INTRO -->
+    <section class="tennis-section">
+      <h2>🏓 Pickleball</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>🏓 What is Pickleball?</h3>
+          <p>
+            A fast-paced game combining tennis, table tennis and badminton.
+            Played both indoors and outdoors.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="badge relaxed">Weekly</span>
+          <h3>Monday</h3>
+          <div class="time">3:45 – 5:30pm</div>
+        </div>
+
+        <div class="card">
+          <span class="badge intermediate">Village Hall</span>
+          <h3>Wednesday</h3>
+          <div class="time">4:00 – 6:30pm</div>
+        </div>
+
+        <div class="card">
+          <span class="badge junior">Outdoor</span>
+          <h3>Friday Morning</h3>
+          <p>Weather permitting on court two.</p>
+        </div>
+
+        <div class="card highlight">
+          <h3>Join Pickleball</h3>
+          <p>📧 abby.bourn@hotmail.co.uk</p>
+          <p>Contact Abby Bourn to join a session.</p>
+        </div>
+
+      </div>
+    </section>
+
+      <section class="tennis-section">
+  <div class="tennis-container" style="text-align:center;">
+
+    <h2>Explore More Sports</h2>
+
+    <div class="button-group" style="justify-content:center;">
+  
+      <a href="tennis.html" class="cta-btn tennis">🎾 Tennis</a>
+      <a href="badminton.html" class="cta-btn badminton">🏸 Badminton</a>
+    </div>
+
+  </div>
+</section>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Elham Sports Club</p>
+</footer>
+</body>
+   
+   <script>
+
+ fetch('./nav.html')
+  .then(res => res.text())
+  .then(data => {
+    const container = document.getElementById('nav-placeholder');
+
+    if (!container) {
+      console.error("nav-placeholder NOT FOUND");
+      return;
+    }
+
+    container.innerHTML = data;
+
+    const nav = container.querySelector("#mobileNav");
+    const overlay = container.querySelector("#navOverlay");
+    const hamburger = container.querySelector(".hamburger");
+
+    if (!nav || !overlay || !hamburger) {
+      console.error("Nav elements missing");
+      return;
+    }
+
+    // ✅ hamburger
+    hamburger.addEventListener("click", () => {
+      nav.classList.toggle("open");
+      overlay.classList.toggle("active");
+    });
+
+    // ✅ close menu
+    function closeMenu() {
+      nav.classList.remove("open");
+      overlay.classList.remove("active");
+    }
+
+    overlay.addEventListener("click", closeMenu);
+
+   nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(e) {
+
+    // 🔑 If inside dropdown submenu → DO NOTHING
+    if (this.closest(".mobile-sub")) return;
+
+    // Otherwise close menu
+    closeMenu();
+  });
+});
+
+      nav.addEventListener("click", function(e) {
+  e.stopPropagation();
+});
+
+    // ✅ dropdowns
+    nav.querySelectorAll(".mobile-dropdown-header").forEach(header => {
+      header.addEventListener("click", function() {
+        const parent = this.parentElement;
+        const sub = this.nextElementSibling;
+
+        parent.classList.toggle("open");
+
+        if (sub.classList.contains("open")) {
+          sub.classList.remove("open");
+          sub.style.maxHeight = null;
+        } else {
+          sub.classList.add("open");
+          sub.style.maxHeight = sub.scrollHeight + "px";
+        }
+      });
+    });
+
+  })
+  .catch(err => console.error("Nav load error:", err));
+</script>
+
+   
+</body>
+</html>
