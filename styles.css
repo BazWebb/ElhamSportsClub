@@ -349,6 +349,18 @@ section {
   transform: translateY(-6px);
 }
 
+.card a[href^="tel:"],
+.card a[href^="mailto:"] {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card a[href^="tel:"]:hover,
+.card a[href^="mailto:"]:hover {
+  text-decoration: underline;
+}
+
 /* =========================
    BUTTONS
 ========================= */
