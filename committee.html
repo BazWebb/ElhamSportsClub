@@ -9,6 +9,96 @@
 <style>
    
 </style>
+
+    <style>
+  .committee-table-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .committee-table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .committee-table th {
+    background-color: #1f4e79;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+  }
+
+  .committee-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+    color: #333;
+  }
+
+  .committee-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .committee-table a {
+    color: #0066cc;
+    text-decoration: none;
+    word-break: break-word;
+  }
+
+  .committee-table a:hover {
+    text-decoration: underline;
+  }
+
+  /* Mobile Layout */
+  @media screen and (max-width: 768px) {
+    .committee-table,
+    .committee-table thead,
+    .committee-table tbody,
+    .committee-table th,
+    .committee-table td,
+    .committee-table tr {
+      display: block;
+      width: 100%;
+    }
+
+    .committee-table thead {
+      display: none;
+    }
+
+    .committee-table tr {
+      margin-bottom: 16px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .committee-table td {
+      border: none;
+      padding: 8px 10px;
+      position: relative;
+    }
+
+    .committee-table td::before {
+      content: attr(data-label);
+      display: block;
+      font-weight: bold;
+      color: #1f4e79;
+      margin-bottom: 4px;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+  }
+</style>
+   
    <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -35,9 +125,10 @@
  
 
 <main>
-   <div style="display: flex; justify-content: center;">
-  <table border="1" cellpadding="8" cellspacing="0" 
-         style="border-collapse: collapse; width: 50%;">
+    
+
+<div class="committee-table-wrapper">
+  <table class="committee-table">
     <thead>
       <tr>
         <th>Role</th>
@@ -48,70 +139,120 @@
     </thead>
     <tbody>
       <tr>
-        <td>Chair</td>
-        <td>TBC</td>
-        <td></td>
-        <td></td>
+        <td data-label="Role">Chair</td>
+        <td data-label="Name">TBC</td>
+        <td data-label="Email"></td>
+        <td data-label="Phone"></td>
       </tr>
+
       <tr>
-        <td>Vice Chairman</td>
-        <td>Maureen Alexander</td>
-        <td><a href="mailto:maureentalexander@gmail.com">maureentalexander@gmail.com</a></td>
-        <td><a href="tel:07714415651">07714 415651</a></td>
+        <td data-label="Role">Vice Chairman</td>
+        <td data-label="Name">Maureen Alexander</td>
+        <td data-label="Email">
+          <a href="mailto:maureentalexander@gmail.com">maureentalexander@gmail.com</a>
+        </td>
+        <td data-label="Phone">
+          <a href="tel:07714415651">07714 415651</a>
+        </td>
       </tr>
+
       <tr>
-        <td>Membership</td>
-        <td>Brett Clitheroe</td>
-        <td><a href="mailto:brett.c@brettclitheroe.co.uk">brett.c@brettclitheroe.co.uk</a></td>
-        <td><a href="tel:07875797747">07875 797747</a></td>
+        <td data-label="Role">Membership</td>
+        <td data-label="Name">Brett Clitheroe</td>
+        <td data-label="Email">
+          <a href="mailto:brett.c@brettclitheroe.co.uk">brett.c@brettclitheroe.co.uk</a>
+        </td>
+        <td data-label="Phone">
+          <a href="tel:07875797747">07875 797747</a>
+        </td>
       </tr>
+
       <tr>
-        <td>Treasurer</td>
-        <td>Clive Stanyon</td>
-        <td><a href="mailto:stanyon@aol.com">stanyon@aol.com</a></td>
-        <td><a href="tel:01303840820">01303 840820</a></td>
+        <td data-label="Role">Treasurer</td>
+        <td data-label="Name">Clive Stanyon</td>
+        <td data-label="Email">
+          <a href="mailto:stanyon@aol.com">stanyon@aol.com</a>
+        </td>
+        <td data-label="Phone">
+          <a href="tel:01303840820">01303 840820</a>
+        </td>
       </tr>
+
       <tr>
-        <td>Secretary</td>
-        <td>Maureen Alexander</td>
-        <td><a href="mailto:maureentalexander@gmail.com">maureentalexander@gmail.com</a></td>
-        <td><a href="tel:07714415651">07714 415651</a></td>
+        <td data-label="Role">Secretary</td>
+        <td data-label="Name">Maureen Alexander</td>
+        <td data-label="Email">
+          <a href="mailto:maureentalexander@gmail.com">maureentalexander@gmail.com</a>
+        </td>
+        <td data-label="Phone">
+          <a href="tel:07714415651">07714 415651</a>
+        </td>
       </tr>
+
       <tr>
-        <td>Badminton</td>
-        <td>Clive Stanyon</td>
-        <td><a href="mailto:stanyon@aol.com">stanyon@aol.com</a></td>
-        <td><a href="tel:01303840820">01303 840820</a></td>
+        <td data-label="Role">Badminton</td>
+        <td data-label="Name">Clive Stanyon</td>
+        <td data-label="Email">
+          <a href="mailto:stanyon@aol.com">stanyon@aol.com</a>
+        </td>
+        <td data-label="Phone">
+          <a href="tel:01303840820">01303 840820</a>
+        </td>
       </tr>
+
       <tr>
-        <td>Pickleball</td>
-        <td>Abby Bourn</td>
-        <td><a href="mailto:abby.bourn@hotmail.co.uk">abby.bourn@hotmail.co.uk</a></td>
-        <td><a href="tel:07754085866">07754 085866</a></td>
+        <td data-label="Role">Pickleball</td>
+        <td data-label="Name">Abby Bourn</td>
+        <td data-label="Email">
+          <a href="mailto:abby.bourn@hotmail.co.uk">abby.bourn@hotmail.co.uk</a>
+        </td>
+        <td data-label="Phone">
+          <a href="tel:07754085866">07754 085866</a>
+        </td>
       </tr>
+
       <tr>
-        <td>Safeguarding</td>
-        <td>Charles Kirchner</td>
-        <td><a href="mailto:charleskirchner@hotmail.co.uk">charleskirchner@hotmail.co.uk</a></td>
-        <td><a href="tel:07771684239">07771 684239</a></td>
+        <td data-label="Role">Safeguarding</td>
+        <td data-label="Name">Charles Kirchner</td>
+        <td data-label="Email">
+          <a href="mailto:charleskirchner@hotmail.co.uk">charleskirchner@hotmail.co.uk</a>
+        </td>
+        <td data-label="Phone">
+          <a href="tel:07771684239">07771 684239</a>
+        </td>
       </tr>
+
       <tr>
-        <td>Coaching</td>
-        <td>Steve Uttley</td>
-        <td><a href="mailto:steveuttley@gmail.com">steveuttley@gmail.com</a></td>
-        <td><a href="tel:07984763156">07984 763156</a></td>
+        <td data-label="Role">Coaching</td>
+        <td data-label="Name">Steve Uttley</td>
+        <td data-label="Email">
+          <a href="mailto:steveuttley@gmail.com">steveuttley@gmail.com</a>
+        </td>
+        <td data-label="Phone">
+          <a href="tel:07984763156">07984 763156</a>
+        </td>
       </tr>
+
       <tr>
-        <td>Health &amp; Safety</td>
-        <td>Miranda Weller</td>
-        <td><a href="mailto:miranda123@hotmail.com">miranda123@hotmail.com</a></td>
-        <td><a href="tel:07729347341">07729 347341</a></td>
+        <td data-label="Role">Health &amp; Safety</td>
+        <td data-label="Name">Miranda Weller</td>
+        <td data-label="Email">
+          <a href="mailto:miranda123@hotmail.com">miranda123@hotmail.com</a>
+        </td>
+        <td data-label="Phone">
+          <a href="tel:07729347341">07729 347341</a>
+        </td>
       </tr>
+
       <tr>
-        <td>Competitions</td>
-        <td>Mick Alldritt</td>
-        <td><a href="mailto:m.alldritt@hotmail.co.uk">m.alldritt@hotmail.co.uk</a></td>
-        <td><a href="tel:07503493481">07503 493481</a></td>
+        <td data-label="Role">Competitions</td>
+        <td data-label="Name">Mick Alldritt</td>
+        <td data-label="Email">
+          <a href="mailto:m.alldritt@hotmail.co.uk">m.alldritt@hotmail.co.uk</a>
+        </td>
+        <td data-label="Phone">
+          <a href="tel:07503493481">07503 493481</a>
+        </td>
       </tr>
     </tbody>
   </table>
