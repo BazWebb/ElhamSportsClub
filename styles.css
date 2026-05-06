@@ -327,7 +327,7 @@ section {
 
 .hero img {
   width: 100%;
-  aspect-ratio: 16 / 6;   /* 🔑 controls shape */
+  aspect-ratio: 12 / 6;   /* 🔑 controls shape */
   object-fit: cover;
   display: block;
 }
