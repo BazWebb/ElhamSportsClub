@@ -1,1 +1,149 @@
 
+
+       <title>About - Elham Sports Club</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="home-page">
+
+<header>
+  <div id="nav-placeholder"></div>  
+</header>
+
+<!-- HERO -->
+<div class="header hero">
+  <img src="tennisplayers.jpg" alt="Club">
+
+  <div class="hero-content">
+    <h1>Casual Use</h1>
+    <p>Elham Sports Club</p>
+  </div>
+</div>
+
+<main>
+<div class="tennis-container">
+
+<!-- CLUB OVERVIEW -->
+<section class="tennis-section">
+
+  <h2>Club Overview</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Weekend Availability</h3>
+      <p>
+        Court 2 is open for casual use, whether for tennis or other multi sports, at the weekend.
+      </p>
+    </div>
+
+  
+
+    <div class="card">
+      <h3>Booking Outside of Weekend Hours</h3>
+      <p>
+        At other times, you may hire Court 2 on a casual basis. To do so, please contact Brett by telephone on 07875 797747, or Clive on 07771 922192, or alternatively via email at stanyonc@aol.com.
+        They will organise access to the court for you. Please note that there is a charge for casual use.
+      </p>
+    </div>
+
+  </div>
+
+    <div class="card">
+      <h3>Try before you buy</h3>
+      <p>
+        Trying the Club Before Joining
+    If you are interested in playing and considering membership, you are welcome to attend one of our club sessions free of charge. 
+        This offers you the opportunity to experience the club atmosphere and decide if it is suitable for you. 
+        To participate in a club session, please contact Brett on 07875 797747 or Steve on 07984 763156. You will receive a warm welcome!
+
+      </p>
+    </div>
+
+</section>
+
+ 
+
+<!-- CTA -->
+<section class="tennis-section" style="text-align:center;">
+
+  <h2>Join Us</h2>
+
+  <a href="index.html#play" class="cta-btn">
+    View Membership & Play Options
+  </a>
+
+</section>
+
+</div>
+</main>
+
+       <script>
+              
+fetch('nav.html')
+  .then(res => res.text())
+  .then(data => {
+    console.log("NAV LOADED");
+
+    document.getElementById('nav-placeholder').innerHTML = data;
+
+    const nav = document.getElementById("mobileNav");
+    const overlay = document.getElementById("navOverlay");
+    const hamburger = document.querySelector(".hamburger");
+
+    console.log("Elements:", nav, overlay, hamburger);
+
+    if (!nav || !overlay || !hamburger) {
+      console.error("Nav elements missing");
+      return;
+    }
+
+    hamburger.addEventListener("click", () => {
+      nav.classList.toggle("open");
+      overlay.classList.toggle("active");
+    });
+
+    function closeMenu() {
+      nav.classList.remove("open");
+      overlay.classList.remove("active");
+    }
+
+    overlay.addEventListener("click", closeMenu);
+
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    nav.querySelectorAll(".mobile-dropdown-header").forEach(header => {
+      header.addEventListener("click", function() {
+        const parent = this.parentElement;
+        const sub = this.nextElementSibling;
+
+        document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+          if (drop !== parent) {
+            drop.classList.remove("open");
+            const otherSub = drop.querySelector(".mobile-sub");
+            if (otherSub) {
+              otherSub.classList.remove("open");
+              otherSub.style.maxHeight = null;
+            }
+          }
+        });
+
+        parent.classList.toggle("open");
+
+        if (sub.classList.contains("open")) {
+          sub.classList.remove("open");
+          sub.style.maxHeight = null;
+        } else {
+          sub.classList.add("open");
+          sub.style.maxHeight = sub.scrollHeight + "px";
+        }
+      });
+    });
+
+  })
+  .catch(err => console.error("Nav load error:", err));
+</script>
+</body>
