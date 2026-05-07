@@ -1,1 +1,175 @@
 
+
+
+
+       <title>About - Elham Sports Club</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="home-page">
+
+<header>
+  <div id="nav-placeholder"></div>  
+</header>
+
+<!-- HERO -->
+<div class="header hero"   style="margin:100px auto">  
+
+  <div class="hero-content">
+    <h1>Coaching</h1>
+    <p>Elham Sports Club</p>
+  </div>
+</div>
+
+<main>
+
+       
+
+
+<!-- CLUB OVERVIEW -->
+<section class="tennis-section">
+<div class="tennis-container">
+  <h2>Coaching</h2>
+
+  
+
+
+ <div class="grid">
+
+  <!-- CARD 1 -->
+  <div class="card">
+
+    <h3>Tennis</h3>
+
+    <p>
+      To maintain LTA registration, Elham Sports Club must meet the following safeguarding standards:
+    </p>
+
+    <ul>
+      <li>Safeguarding Policy & Procedures clearly communicated and implemented</li>
+
+      <li>Diversity & Inclusion Policy & Procedures clearly communicated and implemented</li>
+
+      <li>Appointment of a trained Welfare Officer</li>
+
+      <li>Relevant personnel to complete Criminal Records Checks</li>
+
+      <li>Annual Risk Assessment of the venue and facilities</li>
+
+      <li>Level 3+ coaches to hold LTA Accreditation or Accreditation+</li>
+    </ul>
+
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+
+    <h3>✅ Our Commitment</h3>
+
+    <ul>
+
+      <li>
+        <strong>Safeguarding Policy:</strong>
+        Available within the Documentation section.
+      </li>
+
+      <li>
+        <strong>Diversity & Inclusion Policy:</strong>
+        Available within the Documentation section.
+      </li>
+
+      <li>
+        <strong>Welfare Officer:</strong>
+        Charles Kirchner
+      </li>
+
+      <li>
+        <strong>Risk Assessment:</strong>
+        Annual assessments are carried out and available on request.
+      </li>
+
+      <li>
+        <strong>Accredited Coaching:</strong>
+        Stephen Skov is an LTA accredited coach.
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+ 
+
+</div>
+       </section>
+</main>
+
+       <script>
+              
+fetch('nav.html')
+  .then(res => res.text())
+  .then(data => {
+    console.log("NAV LOADED");
+
+    document.getElementById('nav-placeholder').innerHTML = data;
+
+    const nav = document.getElementById("mobileNav");
+    const overlay = document.getElementById("navOverlay");
+    const hamburger = document.querySelector(".hamburger");
+
+    console.log("Elements:", nav, overlay, hamburger);
+
+    if (!nav || !overlay || !hamburger) {
+      console.error("Nav elements missing");
+      return;
+    }
+
+    hamburger.addEventListener("click", () => {
+      nav.classList.toggle("open");
+      overlay.classList.toggle("active");
+    });
+
+    function closeMenu() {
+      nav.classList.remove("open");
+      overlay.classList.remove("active");
+    }
+
+    overlay.addEventListener("click", closeMenu);
+
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    nav.querySelectorAll(".mobile-dropdown-header").forEach(header => {
+      header.addEventListener("click", function() {
+        const parent = this.parentElement;
+        const sub = this.nextElementSibling;
+
+        document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+          if (drop !== parent) {
+            drop.classList.remove("open");
+            const otherSub = drop.querySelector(".mobile-sub");
+            if (otherSub) {
+              otherSub.classList.remove("open");
+              otherSub.style.maxHeight = null;
+            }
+          }
+        });
+
+        parent.classList.toggle("open");
+
+        if (sub.classList.contains("open")) {
+          sub.classList.remove("open");
+          sub.style.maxHeight = null;
+        } else {
+          sub.classList.add("open");
+          sub.style.maxHeight = sub.scrollHeight + "px";
+        }
+      });
+    });
+
+  })
+  .catch(err => console.error("Nav load error:", err));
+</script>
+</body>
