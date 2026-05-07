@@ -258,6 +258,14 @@ section {
   color: #0d3b66;
   padding: 25px;
   border-radius: 12px;
+  display: flex;              /* 🔑 */
+  flex-direction: column;     /* 🔑 */
+}
+
+/* pushes button section to bottom */
+.section-card .cta-container {
+  margin-top: auto;           /* 🔑 */
+  padding-top: 20px;
 }
 
 /* TOP BANNER (FIXED) */
