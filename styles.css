@@ -360,7 +360,15 @@ section {
 .card a[href^="mailto:"]:hover {
   text-decoration: underline;
 }
+.card ul {
+  margin-top: 12px;
+  padding-left: 20px;
+}
 
+.card li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
 /* =========================
    BUTTONS
 ========================= */
