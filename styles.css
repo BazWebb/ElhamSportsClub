@@ -336,7 +336,7 @@ section {
 
 .hero img {
   width: 100%;
-  aspect-ratio: 12 / 6;   /* 🔑 controls shape */
+  aspect-ratio: 16 / 6;   /* 🔑 controls shape */
   object-fit: cover;
   display: block;
 }
@@ -392,6 +392,16 @@ section {
   font-weight: 600;
   cursor: pointer;
   border: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cta-btn:hover,
+.copy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
 .button-group {
@@ -481,6 +491,7 @@ section {
  
   .top-banner {
     max-height: 200px;
+     aspect-ratio: 16 / 9;
   }
  
 
@@ -505,7 +516,7 @@ section {
 
   /* GRID */
   .grid {
-    grid-template-columns: 1fr;
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
   /* HERO */
