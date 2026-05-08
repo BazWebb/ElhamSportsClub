@@ -133,13 +133,16 @@ nav ul.menu > li > a {
   display: block;
   padding: 12px 16px;
   color: #0d3b66;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
 }
 
 .dropdown-menu a:hover {
  background: #eef5fb;
-  color: var(--accent);
+  border-left: 3px solid var(--accent);
   padding-left: 20px;
-  transition: all 0.2s ease;
+  color: var(--accent);
 }
 
 /* =========================
