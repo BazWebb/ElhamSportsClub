@@ -454,6 +454,10 @@ section {
   background: linear-gradient(135deg, #9c27b0, #ce93d8);
 }
 
+.badge.private {
+  background: linear-gradient(135deg, #eb2337, #ba3c3c);
+}
+
 /* =========================
    MAP
 ========================= */
