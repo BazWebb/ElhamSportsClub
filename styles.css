@@ -16,6 +16,11 @@
 .badminton-page { --accent: #1565c0; }
 .pickleball-page { --accent: #ef6c00; }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* =========================
    RESET
 ========================= */
@@ -94,7 +99,7 @@ nav ul.menu > li > a {
 }
 
 .menu a:hover {
-  color: #2196f3;
+  color: #ffd166;
   border-bottom: 2px solid #ffd166;
 }
 
@@ -283,12 +288,7 @@ section {
 }
 
 
-/* TABLET */
-@media (min-width: 768px) {
-  .top-banner {
-    max-height: 200px;
-  }
-}
+
 
 /* DESKTOP */
 @media (min-width: 1200px) {
@@ -473,97 +473,87 @@ section {
   border: 0;
 }
 
-/* =========================
+ /* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
-  nav { display: none; }
-  .hamburger { display: block; }
-}
 
- .committee-table-wrapper {
-    display: flex;
-    justify-content: center;
+ 
+  .top-banner {
+    max-height: 200px;
+  }
+ 
+
+  /* NAV */
+  nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* LAYOUT */
+  section {
+    padding: 30px 15px;
+    margin: 20px 10px;
+  }
+
+  .tennis-container {
     padding: 10px;
   }
 
-  .committee-table {
+  /* GRID */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* HERO */
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero img {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* LOGO */
+  .logo img {
+    height: 32px;
+  }
+
+  .logo span {
+    font-size: 1rem;
+  }
+
+  /* BUTTONS */
+  .button-group {
+    flex-direction: column;
+  }
+
+  .cta-btn,
+  .copy-btn {
     width: 100%;
-    max-width: 900px;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    background: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
   }
 
-  .committee-table th {
-    background-color: #1f4e79;
-    color: white;
-    padding: 12px;
-    text-align: left;
-    font-size: 16px;
+  /* TABLES */
+  .committee-table,
+  .committee-table thead,
+  .committee-table tbody,
+  .committee-table th,
+  .committee-table td,
+  .committee-table tr {
+    display: block;
+    width: 100%;
   }
 
-  .committee-table td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    font-size: 15px;
-    color: #333;
+  .committee-table thead {
+    display: none;
   }
 
-  .committee-table tr:last-child td {
-    border-bottom: none;
-  }
-
-  .committee-table a {
-    color: #0066cc;
-    text-decoration: none;
-    word-break: break-word;
-  }
-
-  .committee-table a:hover {
-    text-decoration: underline;
-  }
-
-  /* Mobile Layout */
-  @media screen and (max-width: 768px) {
-    .committee-table,
-    .committee-table thead,
-    .committee-table tbody,
-    .committee-table th,
-    .committee-table td,
-    .committee-table tr {
-      display: block;
-      width: 100%;
-    }
-
-    .committee-table thead {
-      display: none;
-    }
-
-    .committee-table tr {
-      margin-bottom: 16px;
-      background: #f9f9f9;
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }
-
-    .committee-table td {
-      border: none;
-      padding: 8px 10px;
-      position: relative;
-    }
-
-    .committee-table td::before {
-      content: attr(data-label);
-      display: block;
-      font-weight: bold;
-      color: #1f4e79;
-      margin-bottom: 4px;
-      font-size: 13px;
-      text-transform: uppercase;
-    }
-  }
+}
