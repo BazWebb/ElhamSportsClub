@@ -539,9 +539,13 @@ section {
   }
 
   /* LOGO */
-  .logo img {
-    height: 32px;
+
+   .logo {
     min-width: 0;
+  }
+   
+  .logo img {
+    height: 32px; 
   }
 
   .logo span {
