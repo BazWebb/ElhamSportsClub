@@ -136,7 +136,10 @@ nav ul.menu > li > a {
 }
 
 .dropdown-menu a:hover {
-  background: #f0f4f8;
+ background: #eef5fb;
+  color: var(--accent);
+  padding-left: 20px;
+  transition: all 0.2s ease;
 }
 
 /* =========================
