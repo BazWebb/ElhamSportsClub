@@ -293,6 +293,15 @@ section {
   margin: 15px auto;
 }
 
+.committee-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.committee-table-wrapper {
+  overflow-x: auto;
+}
+
 .committee-table a {
   color: #7ec8ff;   /* light blue */
   text-decoration: none;
@@ -579,8 +588,7 @@ section {
   .committee-table tbody,
   .committee-table th,
   .committee-table td,
-  .committee-table tr {
-    display: block;
+  .committee-table tr { 
     width: 100%;
   }
 
