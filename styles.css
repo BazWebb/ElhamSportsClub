@@ -293,7 +293,16 @@ section {
   margin: 15px auto;
 }
 
+.committee-table a {
+  color: #7ec8ff;   /* light blue */
+  text-decoration: none;
+  font-weight: 500;
+}
 
+.committee-table a:hover {
+  color: #b6e3ff;
+  text-decoration: underline;
+}
 
 
 /* DESKTOP */
