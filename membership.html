@@ -59,4 +59,77 @@
 
 </section>
 </body>
+   <script>
+
+ fetch('./nav.html')
+  .then(res => res.text())
+  .then(data => {
+    const container = document.getElementById('nav-placeholder');
+
+    if (!container) {
+      console.error("nav-placeholder NOT FOUND");
+      return;
+    }
+
+    container.innerHTML = data;
+
+    const nav = container.querySelector("#mobileNav");
+    const overlay = container.querySelector("#navOverlay");
+    const hamburger = container.querySelector(".hamburger");
+
+    if (!nav || !overlay || !hamburger) {
+      console.error("Nav elements missing");
+      return;
+    }
+
+    // ✅ hamburger
+    hamburger.addEventListener("click", () => {
+      nav.classList.toggle("open");
+      overlay.classList.toggle("active");
+    });
+
+    // ✅ close menu
+    function closeMenu() {
+      nav.classList.remove("open");
+      overlay.classList.remove("active");
+    }
+
+    overlay.addEventListener("click", closeMenu);
+
+   nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(e) {
+
+    // 🔑 If inside dropdown submenu → DO NOTHING
+    if (this.closest(".mobile-sub")) return;
+
+    // Otherwise close menu
+    closeMenu();
+  });
+});
+
+      nav.addEventListener("click", function(e) {
+  e.stopPropagation();
+});
+
+    // ✅ dropdowns
+    nav.querySelectorAll(".mobile-dropdown-header").forEach(header => {
+      header.addEventListener("click", function() {
+        const parent = this.parentElement;
+        const sub = this.nextElementSibling;
+
+        parent.classList.toggle("open");
+
+        if (sub.classList.contains("open")) {
+          sub.classList.remove("open");
+          sub.style.maxHeight = null;
+        } else {
+          sub.classList.add("open");
+          sub.style.maxHeight = sub.scrollHeight + "px";
+        }
+      });
+    });
+
+  })
+  .catch(err => console.error("Nav load error:", err));
+</script>
 </html>
