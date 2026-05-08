@@ -219,14 +219,7 @@
     </a>
   </div>
 
-  <p>
-    <strong id="postcode">CT4 6SX</strong>
-  </p>
-
- <button class="copy-btn" onclick="copyPostcode(this)">
-    Copy postcode
-  </button>
-      
+  
   </div>
 </section>
     
@@ -306,28 +299,7 @@ fetch('nav.html')
   .catch(err => console.error("Nav load error:", err));
 </script>
  
- <script>
-function copyPostcode(button) {
-
-  const postcode =
-    document.getElementById("postcode").innerText;
-
-  navigator.clipboard.writeText(postcode).then(() => {
-
-    const originalText = button.innerText;
-
-    button.innerText = "Copied!";
-    button.classList.add("copied");
-
-    setTimeout(() => {
-      button.innerText = originalText;
-      button.classList.remove("copied");
-    }, 1500);
-
-  });
-
-}
-</script>
+ 
  
 </body>
 </html>
