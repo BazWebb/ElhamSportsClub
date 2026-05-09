@@ -331,25 +331,27 @@ fetch('nav.html')
 </script>
 
  <script>
- const slides =
-  document.querySelectorAll(".slide");
+document.addEventListener("DOMContentLoaded", () => {
 
-let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
 
-setInterval(() => {
+  let currentSlide = 0;
 
-  slides[currentSlide]
-    .classList.remove("active");
+  setInterval(() => {
 
-  currentSlide =
-    (currentSlide + 1) % slides.length;
+    slides[currentSlide]
+      .classList.remove("active");
 
-  slides[currentSlide]
-    .classList.add("active");
+    currentSlide =
+      (currentSlide + 1) % slides.length;
 
-}, 3500);
-   
- </script>
+    slides[currentSlide]
+      .classList.add("active");
+
+  }, 3500);
+
+});
+</script>
  
 </body>
 </html>
