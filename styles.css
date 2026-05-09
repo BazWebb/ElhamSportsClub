@@ -297,6 +297,12 @@ section {
   transition: opacity 1s ease;
 }
 
+/* first image visible */
+.slide:first-child {
+  opacity: 1;
+}
+
+
 .slide.active {
   opacity: 1;
 }
