@@ -6,23 +6,7 @@
 <title>Elham Sports Club</title>
 
   <script>
-const slides =
-  document.querySelectorAll(".slide");
 
-let currentSlide = 0;
-
-setInterval(() => {
-
-  slides[currentSlide]
-    .classList.remove("active");
-
-  currentSlide =
-    (currentSlide + 1) % slides.length;
-
-  slides[currentSlide]
-    .classList.add("active");
-
-}, 3500);
 </script>
     
 <link rel="stylesheet" href="styles.css">
@@ -345,8 +329,27 @@ fetch('nav.html')
   })
   .catch(err => console.error("Nav load error:", err));
 </script>
- 
- 
+ const slides =
+  document.querySelectorAll(".slide");
+
+let currentSlide = 0;
+
+setInterval(() => {
+
+  slides[currentSlide]
+    .classList.remove("active");
+
+  currentSlide =
+    (currentSlide + 1) % slides.length;
+
+  slides[currentSlide]
+    .classList.add("active");
+
+}, 3500);
+ <script>
+
+   
+ </script>
  
 </body>
 </html>
