@@ -80,6 +80,11 @@ header {
 /* =========================
    DESKTOP MENU
 ========================= */
+#nav-placeholder {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 nav ul.menu {
   display: flex;
   list-style: none;
