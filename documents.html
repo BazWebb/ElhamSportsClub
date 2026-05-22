@@ -59,14 +59,73 @@
   </footer>
 
   <!-- MOBILE NAV SCRIPT -->
-  <script>
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('nav');
+        <script>
+              
+fetch('nav.html')
+  .then(res => res.text())
+  .then(data => {
+    console.log("NAV LOADED");
 
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
+    document.getElementById('nav-placeholder').innerHTML = data;
+
+    const nav = document.getElementById("mobileNav");
+    const overlay = document.getElementById("navOverlay");
+    const hamburger = document.querySelector(".hamburger");
+
+    console.log("Elements:", nav, overlay, hamburger);
+
+    if (!nav || !overlay || !hamburger) {
+      console.error("Nav elements missing");
+      return;
+    }
+
+    hamburger.addEventListener("click", () => {
+      nav.classList.toggle("open");
+      overlay.classList.toggle("active");
     });
-  </script>
+
+    function closeMenu() {
+      nav.classList.remove("open");
+      overlay.classList.remove("active");
+    }
+
+    overlay.addEventListener("click", closeMenu);
+
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    nav.querySelectorAll(".mobile-dropdown-header").forEach(header => {
+      header.addEventListener("click", function() {
+        const parent = this.parentElement;
+        const sub = this.nextElementSibling;
+
+        document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+          if (drop !== parent) {
+            drop.classList.remove("open");
+            const otherSub = drop.querySelector(".mobile-sub");
+            if (otherSub) {
+              otherSub.classList.remove("open");
+              otherSub.style.maxHeight = null;
+            }
+          }
+        });
+
+        parent.classList.toggle("open");
+
+        if (sub.classList.contains("open")) {
+          sub.classList.remove("open");
+          sub.style.maxHeight = null;
+        } else {
+          sub.classList.add("open");
+          sub.style.maxHeight = sub.scrollHeight + "px";
+        }
+      });
+    });
+
+  })
+  .catch(err => console.error("Nav load error:", err));
+</script>
 
 </body>
 </html>
