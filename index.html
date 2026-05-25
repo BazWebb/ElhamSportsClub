@@ -312,13 +312,14 @@ fetch('nav.html')
 
   })
 
+    .catch(err => console.error("Nav load error:", err));
+
 fetch('footer.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('footer-placeholder').innerHTML = data;
-  });
-  
-  .catch(err => console.error("Nav load error:", err));
+  })
+  .catch(err => console.error("Footer load error:", err));
 </script>
 
  
@@ -354,8 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
  
  
-</body>
-  <div id="footer-placeholder"></div>
+</body> 
 </html>
  
 
