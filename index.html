@@ -240,9 +240,7 @@
   </div>
 </section>
     
-<footer>
-  <p>© 2026 Elham Sports Club</p>
-</footer>
+<div id="footer-placeholder"></div>
 
    
 
@@ -313,6 +311,13 @@ fetch('nav.html')
     });
 
   })
+
+fetch('footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
+  });
+  
   .catch(err => console.error("Nav load error:", err));
 </script>
 
@@ -350,6 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
  
  
 </body>
+  <div id="footer-placeholder"></div>
 </html>
  
 
