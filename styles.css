@@ -157,7 +157,9 @@ nav ul.menu > li > a {
 ========================= */
 .hamburger {
   display: none;
-  font-size: 1.8rem;
+    width: 48px;
+  height: 48px;
+  font-size: 30px;
   cursor: pointer;
   color: white;
 }
