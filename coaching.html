@@ -90,11 +90,14 @@
 </div>
        </section>
 </main>
-<footer>
-  <p>© 2026 Elham Sports Club</p>
-</footer>
-       <script>
-              
+ 
+    
+<div id="footer-placeholder"></div>
+
+ <script>
+
+ console.log("NAV SCRIPT START");
+
 fetch('nav.html')
   .then(res => res.text())
   .then(data => {
@@ -158,6 +161,14 @@ fetch('nav.html')
     });
 
   })
-  .catch(err => console.error("Nav load error:", err));
+
+    .catch(err => console.error("Nav load error:", err));
+
+fetch('footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
+  })
+  .catch(err => console.error("Footer load error:", err));
 </script>
 </body>
