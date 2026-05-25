@@ -68,15 +68,17 @@ header {
   display: flex;
   align-items: center;
   gap: 10px; 
+  min-width: 0;
 }
 
 .logo img {
   height: 64px;
+  width: auto;
 }
 
 .logo span {
-  font-weight: bold;
-    font-size: 1.5rem;
+  font-size: clamp(0.85rem, 7vw, 1.5rem);
+  white-space: nowrap;
 }
 
 /* =========================
