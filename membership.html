@@ -58,40 +58,37 @@
   </div>
 
 </section>
-   <footer>
-  <p>© 2026 Elham Sports Club</p>
-</footer>
-</body>
-   <script>
+    
+    
+<div id="footer-placeholder"></div>
 
- fetch('./nav.html')
+ <script>
+
+ console.log("NAV SCRIPT START");
+
+fetch('nav.html')
   .then(res => res.text())
   .then(data => {
-    const container = document.getElementById('nav-placeholder');
+    console.log("NAV LOADED");
 
-    if (!container) {
-      console.error("nav-placeholder NOT FOUND");
-      return;
-    }
+    document.getElementById('nav-placeholder').innerHTML = data;
 
-    container.innerHTML = data;
+    const nav = document.getElementById("mobileNav");
+    const overlay = document.getElementById("navOverlay");
+    const hamburger = document.querySelector(".hamburger");
 
-    const nav = container.querySelector("#mobileNav");
-    const overlay = container.querySelector("#navOverlay");
-    const hamburger = container.querySelector(".hamburger");
+    console.log("Elements:", nav, overlay, hamburger);
 
     if (!nav || !overlay || !hamburger) {
       console.error("Nav elements missing");
       return;
     }
 
-    // ✅ hamburger
     hamburger.addEventListener("click", () => {
       nav.classList.toggle("open");
       overlay.classList.toggle("active");
     });
 
-    // ✅ close menu
     function closeMenu() {
       nav.classList.remove("open");
       overlay.classList.remove("active");
@@ -99,26 +96,25 @@
 
     overlay.addEventListener("click", closeMenu);
 
-   nav.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", function(e) {
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
 
-    // 🔑 If inside dropdown submenu → DO NOTHING
-    if (this.closest(".mobile-sub")) return;
-
-    // Otherwise close menu
-    closeMenu();
-  });
-});
-
-      nav.addEventListener("click", function(e) {
-  e.stopPropagation();
-});
-
-    // ✅ dropdowns
     nav.querySelectorAll(".mobile-dropdown-header").forEach(header => {
       header.addEventListener("click", function() {
         const parent = this.parentElement;
         const sub = this.nextElementSibling;
+
+        document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+          if (drop !== parent) {
+            drop.classList.remove("open");
+            const otherSub = drop.querySelector(".mobile-sub");
+            if (otherSub) {
+              otherSub.classList.remove("open");
+              otherSub.style.maxHeight = null;
+            }
+          }
+        });
 
         parent.classList.toggle("open");
 
@@ -133,6 +129,14 @@
     });
 
   })
-  .catch(err => console.error("Nav load error:", err));
+
+    .catch(err => console.error("Nav load error:", err));
+
+fetch('footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
+  })
+  .catch(err => console.error("Footer load error:", err));
 </script>
 </html>
