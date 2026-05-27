@@ -457,7 +457,7 @@ section {
 }
 
 .footer-affiliation img {
-  height: 42px;
+  height: 52px;
   margin-top: 10px;
   background: white;
   padding: 4px;
