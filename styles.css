@@ -49,6 +49,10 @@ body {
    overscroll-behavior-y: none;
 }
 
+* {
+   outline: 1px solid red;
+}
+
 /* =========================
    NAVBAR
 ========================= */
