@@ -94,6 +94,20 @@ header {
   white-space: nowrap;
 }
 
+.construction-banner {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffe69c;
+    padding: 12px 20px;
+    margin: 20px auto;
+    max-width: 1100px;
+    border-radius: 8px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
 /* =========================
    DESKTOP MENU
 ========================= */
